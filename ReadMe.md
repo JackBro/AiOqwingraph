@@ -6,7 +6,10 @@
 3. Added a option to open a gdl file
 
 ### Known issues
-    GWinGraph32 will not run without a file name from the command line. my solution is to script a launcher with a default gdl file loading large files night take time Scaling is a problem on large graphs, ie 4K plus nodes. the jump will not always be centered
+    GWinGraph32 will not run without a file name from the command line.
+my solution is to script a launcher with a default gdl file loading large
+files might take time Scaling is a problem on large graphs, ie 4K plus
+nodes. the jump will not always be centered
 
 ### Possible future work
 1. Add a list view of all nodes to modify parameters
