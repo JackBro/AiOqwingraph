@@ -1,0 +1,7292 @@
+
+Grammar
+rule 1    graph -> LEXWORD_GRAPH '{' graph_entry_list '}'
+rule 2    graph_entry_list -> graph_entry_list graph_entry
+rule 3    graph_entry_list -> graph_entry
+rule 4    graph_entry -> graph_attribute
+rule 5    graph_entry -> node_defaults
+rule 6    graph_entry -> edge_defaults
+rule 7    graph_entry -> foldnode_defaults
+rule 8    graph_entry -> foldedge_defaults
+rule 9    graph_entry -> graph
+rule 10   graph_entry -> node
+rule 11   graph_entry -> edge
+rule 12   graph_entry -> nearedge
+rule 13   graph_entry -> bentnearedge
+rule 14   graph_entry -> backedge
+rule 15   graph_entry -> constraint
+rule 16   graph_attribute -> LEXWORD_TITLE ':' str_const
+rule 17   graph_attribute -> LEXWORD_LABEL ':' str_const
+rule 18   graph_attribute -> LEXWORD_INFO1 ':' str_const
+rule 19   graph_attribute -> LEXWORD_INFO2 ':' str_const
+rule 20   graph_attribute -> LEXWORD_INFO3 ':' str_const
+rule 21   graph_attribute -> LEXWORD_COLOR ':' enum_color
+rule 22   graph_attribute -> LEXWORD_TEXTCOLOR ':' enum_color
+rule 23   graph_attribute -> LEXWORD_BORDERCOLOR ':' enum_color
+rule 24   graph_attribute -> LEXWORD_WIDTH ':' int_const
+rule 25   graph_attribute -> LEXWORD_HEIGHT ':' int_const
+rule 26   graph_attribute -> LEXWORD_BORDERWIDTH ':' int_const
+rule 27   graph_attribute -> 'x' ':' int_const
+rule 28   graph_attribute -> 'y' ':' int_const
+rule 29   graph_attribute -> LEXWORD_LOC '{' 'x' ':' int_const 'y' ':' int_const '}'
+rule 30   graph_attribute -> LEXWORD_FOLDING ':' int_const
+rule 31   graph_attribute -> LEXWORD_SCALING ':' float_const
+rule 32   graph_attribute -> LEXWORD_SHRINK ':' int_const
+rule 33   graph_attribute -> LEXWORD_STRETCH ':' int_const
+rule 34   graph_attribute -> LEXWORD_TEXTMODE ':' enum_textmode
+rule 35   graph_attribute -> LEXWORD_SHAPE ':' enum_shape
+rule 36   graph_attribute -> LEXWORD_LEVEL ':' int_const
+rule 37   graph_attribute -> LEXWORD_VORDER ':' int_const
+rule 38   graph_attribute -> LEXWORD_HORDER ':' int_const
+rule 39   graph_attribute -> LEXWORD_STATUS ':' enum_status
+rule 40   graph_attribute -> LEXWORD_XMAX ':' int_const
+rule 41   graph_attribute -> LEXWORD_YMAX ':' int_const
+rule 42   graph_attribute -> LEXWORD_XBASE ':' int_const
+rule 43   graph_attribute -> LEXWORD_YBASE ':' int_const
+rule 44   graph_attribute -> LEXWORD_XSPACE ':' int_const
+rule 45   graph_attribute -> LEXWORD_XLSPACE ':' int_const
+rule 46   graph_attribute -> LEXWORD_YSPACE ':' int_const
+rule 47   graph_attribute -> LEXWORD_XRASTER ':' int_const
+rule 48   graph_attribute -> LEXWORD_XLRASTER ':' int_const
+rule 49   graph_attribute -> LEXWORD_YRASTER ':' int_const
+rule 50   graph_attribute -> LEXWORD_INVISIBLE ':' int_const
+rule 51   graph_attribute -> LEXWORD_HIDDEN ':' int_const
+rule 52   graph_attribute -> LEXWORD_CLASSNAME int_const ':' str_const
+rule 53   graph_attribute -> LEXWORD_INFONAME int_const ':' str_const
+rule 54   graph_attribute -> LEXWORD_COLORENTRY int_const ':' int_const int_const int_const
+rule 55   graph_attribute -> LEXWORD_LAYOUTALGORITHM ':' enum_layoutalgorithm
+rule 56   graph_attribute -> LEXWORD_LAYOUTFREQUENCY ':' enum_layoutfrequency
+rule 57   graph_attribute -> LEXWORD_LAYOUTDOWNFACTOR ':' int_const
+rule 58   graph_attribute -> LEXWORD_LAYOUTUPFACTOR ':' int_const
+rule 59   graph_attribute -> LEXWORD_LAYOUTNEARFACTOR ':' int_const
+rule 60   graph_attribute -> LEXWORD_LAYOUTSPLINEFACTOR ':' int_const
+rule 61   graph_attribute -> LEXWORD_LATE_LABELS ':' enum_yes_no
+rule 62   graph_attribute -> LEXWORD_DISPLAY_EDGE_LABELS ':' enum_yes_no
+rule 63   graph_attribute -> LEXWORD_DIRTY_EDGE_LABELS ':' enum_yes_no
+rule 64   graph_attribute -> LEXWORD_FINETUNING ':' enum_yes_no
+rule 65   graph_attribute -> LEXWORD_HIDESINGLES ':' enum_yes_no
+rule 66   graph_attribute -> LEXWORD_STRAIGHTPHASE ':' enum_yes_no
+rule 67   graph_attribute -> LEXWORD_PRIORITYPHASE ':' enum_yes_no
+rule 68   graph_attribute -> LEXWORD_MANHATTEN ':' enum_yes_no
+rule 69   graph_attribute -> LEXWORD_SMANHATTEN ':' enum_yes_no
+rule 70   graph_attribute -> LEXWORD_NONEAREDGES
+rule 71   graph_attribute -> LEXWORD_NEAREDGES ':' LEXWORD_NO
+rule 72   graph_attribute -> LEXWORD_NEAREDGES ':' LEXWORD_YES
+rule 73   graph_attribute -> LEXWORD_ORIENTATION ':' enum_orientation
+rule 74   graph_attribute -> LEXWORD_NODE_ALIGN ':' enum_node_align
+rule 75   graph_attribute -> LEXWORD_PORTSHARING ':' enum_yes_no
+rule 76   graph_attribute -> LEXWORD_ARROWMODE ':' enum_arrow_mode
+rule 77   graph_attribute -> LEXWORD_SPREADLEVEL ':' int_const
+rule 78   graph_attribute -> LEXWORD_TREEFACTOR ':' float_const
+rule 79   graph_attribute -> LEXWORD_CROSSING_P2 ':' enum_yes_no
+rule 80   graph_attribute -> LEXWORD_CROSSING_OPT ':' enum_yes_no
+rule 81   graph_attribute -> LEXWORD_CROSSING_WEIGHT ':' enum_cross_weight
+rule 82   graph_attribute -> LEXWORD_VIEW ':' enum_view
+rule 83   graph_attribute -> LEXWORD_EDGES ':' enum_yes_no
+rule 84   graph_attribute -> LEXWORD_NODES ':' enum_yes_no
+rule 85   graph_attribute -> LEXWORD_SPLINES ':' enum_yes_no
+rule 86   graph_attribute -> LEXWORD_BMAX ':' int_const
+rule 87   graph_attribute -> LEXWORD_CMAX ':' int_const
+rule 88   graph_attribute -> LEXWORD_CMIN ':' int_const
+rule 89   graph_attribute -> LEXWORD_PMAX ':' int_const
+rule 90   graph_attribute -> LEXWORD_PMIN ':' int_const
+rule 91   graph_attribute -> LEXWORD_RMAX ':' int_const
+rule 92   graph_attribute -> LEXWORD_RMIN ':' int_const
+rule 93   graph_attribute -> LEXWORD_SMAX ':' int_const
+rule 94   graph_attribute -> LEXWORD_TYPENAME ':' str_const
+rule 95   graph_attribute -> LEXWORD_INCLUDE ':' str_const
+rule 96   graph_attribute -> LEXWORD_LAYOUTPARAMETER ':' array_value
+rule 97   graph_attribute -> LEXWORD_TOPSORT ':' enum_topsort
+rule 98   graph_attribute -> LEXWORD_INPUTFUNCTION ':' str_const
+rule 99   graph_attribute -> LEXWORD_OUTPUTFUNCTION ':' str_const
+rule 100  graph_attribute -> LEXWORD_XSCROLLBAR ':' int_const
+rule 101  graph_attribute -> LEXWORD_YSCROLLBAR ':' int_const
+rule 102  enum_color -> LEXWORD_AQUAMARINE
+rule 103  enum_color -> LEXWORD_BLACK
+rule 104  enum_color -> LEXWORD_BLUE
+rule 105  enum_color -> LEXWORD_CYAN
+rule 106  enum_color -> LEXWORD_DARKBLUE
+rule 107  enum_color -> LEXWORD_DARKCYAN
+rule 108  enum_color -> LEXWORD_DARKGREEN
+rule 109  enum_color -> LEXWORD_DARKGREY
+rule 110  enum_color -> LEXWORD_DARKMAGENTA
+rule 111  enum_color -> LEXWORD_DARKRED
+rule 112  enum_color -> LEXWORD_DARKYELLOW
+rule 113  enum_color -> LEXWORD_GOLD
+rule 114  enum_color -> LEXWORD_GREEN
+rule 115  enum_color -> LEXWORD_KHAKI
+rule 116  enum_color -> LEXWORD_LIGHTBLUE
+rule 117  enum_color -> LEXWORD_LIGHTCYAN
+rule 118  enum_color -> LEXWORD_LIGHTGREEN
+rule 119  enum_color -> LEXWORD_LIGHTGREY
+rule 120  enum_color -> LEXWORD_LIGHTMAGENTA
+rule 121  enum_color -> LEXWORD_LIGHTRED
+rule 122  enum_color -> LEXWORD_LIGHTYELLOW
+rule 123  enum_color -> LEXWORD_LILAC
+rule 124  enum_color -> LEXWORD_MAGENTA
+rule 125  enum_color -> LEXWORD_ORANGE
+rule 126  enum_color -> LEXWORD_ORCHID
+rule 127  enum_color -> LEXWORD_PINK
+rule 128  enum_color -> LEXWORD_PURPLE
+rule 129  enum_color -> LEXWORD_RED
+rule 130  enum_color -> LEXWORD_TURQUOISE
+rule 131  enum_color -> LEXWORD_WHITE
+rule 132  enum_color -> LEXWORD_YELLOW
+rule 133  enum_color -> LEXWORD_YELLOWGREEN
+rule 134  enum_color -> int_const
+rule 135  enum_topsort -> LEXWORD_HIGH
+rule 136  enum_topsort -> LEXWORD_LOW
+rule 137  enum_orientation -> LEXWORD_TOP_TO_BOTTOM
+rule 138  enum_orientation -> LEXWORD_BOTTOM_TO_TOP
+rule 139  enum_orientation -> LEXWORD_LEFT_TO_RIGHT
+rule 140  enum_orientation -> LEXWORD_RIGHT_TO_LEFT
+rule 141  enum_layoutalgorithm -> LEXWORD_BARYCENTER
+rule 142  enum_layoutalgorithm -> LEXWORD_ISI
+rule 143  enum_layoutalgorithm -> LEXWORD_PLANAR
+rule 144  enum_layoutalgorithm -> LEXWORD_CONSTRAINTS
+rule 145  enum_layoutalgorithm -> LEXWORD_TREE
+rule 146  enum_layoutalgorithm -> LEXWORD_MAXDEPTH
+rule 147  enum_layoutalgorithm -> LEXWORD_MINDEPTH
+rule 148  enum_layoutalgorithm -> LEXWORD_MAXDEPTHSLOW
+rule 149  enum_layoutalgorithm -> LEXWORD_MINDEPTHSLOW
+rule 150  enum_layoutalgorithm -> LEXWORD_MAXDEGREE
+rule 151  enum_layoutalgorithm -> LEXWORD_MINDEGREE
+rule 152  enum_layoutalgorithm -> LEXWORD_MAXINDEGREE
+rule 153  enum_layoutalgorithm -> LEXWORD_MININDEGREE
+rule 154  enum_layoutalgorithm -> LEXWORD_MAXOUTDEGREE
+rule 155  enum_layoutalgorithm -> LEXWORD_MINOUTDEGREE
+rule 156  enum_layoutalgorithm -> LEXWORD_MINBACK
+rule 157  enum_layoutalgorithm -> LEXWORD_DFS
+rule 158  enum_layoutfrequency -> LEXWORD_EVERY
+rule 159  enum_layoutfrequency -> LEXWORD_MANUAL
+rule 160  enum_status -> LEXWORD_BLACK
+rule 161  enum_status -> LEXWORD_GREY
+rule 162  enum_status -> LEXWORD_WHITE
+rule 163  enum_yes_no -> LEXWORD_YES
+rule 164  enum_yes_no -> LEXWORD_NO
+rule 165  enum_cross_weight -> LEXWORD_BARY
+rule 166  enum_cross_weight -> LEXWORD_MEDIAN
+rule 167  enum_cross_weight -> LEXWORD_BARYMEDIAN
+rule 168  enum_cross_weight -> LEXWORD_MEDIANBARY
+rule 169  enum_view -> LEXWORD_CFISH
+rule 170  enum_view -> LEXWORD_FCFISH
+rule 171  enum_view -> LEXWORD_PFISH
+rule 172  enum_view -> LEXWORD_FPFISH
+rule 173  enum_arrow_mode -> LEXWORD_FIXED
+rule 174  enum_arrow_mode -> LEXWORD_FREE
+rule 175  foldnode_defaults -> LEXWORD_FOLDNODE node_attribute
+rule 176  foldedge_defaults -> LEXWORD_FOLDEDGE edge_attribute
+rule 177  node_defaults -> LEXWORD_NODE1 node_attribute
+rule 178  edge_defaults -> LEXWORD_EDGE1 edge_attribute
+rule 179  node -> LEXWORD_NODE2 '{' node_attribute_list '}'
+rule 180  node_attribute_list -> node_attribute_list node_attribute
+rule 181  node_attribute_list -> node_attribute
+rule 182  edge -> LEXWORD_EDGE2 '{' edge_attribute_list '}'
+rule 183  nearedge -> LEXWORD_NEAREDGE '{' edge_attribute_list '}'
+rule 184  bentnearedge -> LEXWORD_BENTNEAREDGE '{' edge_attribute_list '}'
+rule 185  backedge -> LEXWORD_BACKEDGE '{' edge_attribute_list '}'
+rule 186  edge_attribute_list -> edge_attribute_list edge_attribute
+rule 187  edge_attribute_list -> edge_attribute
+rule 188  constraint -> LEXWORD_CONSTRAINT '{' constraint_attribute_list '}'
+rule 189  constraint_attribute_list -> constraint_attribute_list constraint_attribute
+rule 190  constraint_attribute_list -> constraint_attribute
+rule 191  node_attribute -> LEXWORD_TITLE ':' str_const
+rule 192  node_attribute -> LEXWORD_LABEL ':' str_const
+rule 193  node_attribute -> LEXWORD_INFO1 ':' str_const
+rule 194  node_attribute -> LEXWORD_INFO2 ':' str_const
+rule 195  node_attribute -> LEXWORD_INFO3 ':' str_const
+rule 196  node_attribute -> LEXWORD_FONTNAME ':' str_const
+rule 197  node_attribute -> LEXWORD_COLOR ':' enum_color
+rule 198  node_attribute -> LEXWORD_TEXTCOLOR ':' enum_color
+rule 199  node_attribute -> LEXWORD_BORDERCOLOR ':' enum_color
+rule 200  node_attribute -> LEXWORD_ICONFILE ':' str_const
+rule 201  node_attribute -> LEXWORD_ANCHORPOINTS ':' str_const
+rule 202  node_attribute -> LEXWORD_TYPENAME ':' str_const
+rule 203  node_attribute -> LEXWORD_WIDTH ':' int_const
+rule 204  node_attribute -> LEXWORD_HEIGHT ':' int_const
+rule 205  node_attribute -> LEXWORD_BORDERWIDTH ':' int_const
+rule 206  node_attribute -> LEXWORD_LOC '{' 'x' ':' int_const 'y' ':' int_const '}'
+rule 207  node_attribute -> LEXWORD_FOLDING ':' int_const
+rule 208  node_attribute -> LEXWORD_SCALING ':' float_const
+rule 209  node_attribute -> LEXWORD_SHRINK ':' int_const
+rule 210  node_attribute -> LEXWORD_STRETCH ':' int_const
+rule 211  node_attribute -> LEXWORD_ICONWIDTH ':' int_const
+rule 212  node_attribute -> LEXWORD_ICONHEIGHT ':' int_const
+rule 213  node_attribute -> LEXWORD_TEXTMODE ':' enum_textmode
+rule 214  node_attribute -> LEXWORD_ICONSTYLE ':' enum_iconstyle
+rule 215  node_attribute -> LEXWORD_SHAPE ':' enum_shape
+rule 216  node_attribute -> LEXWORD_LEVEL ':' int_const
+rule 217  node_attribute -> LEXWORD_VORDER ':' int_const
+rule 218  node_attribute -> LEXWORD_HORDER ':' int_const
+rule 219  enum_textmode -> LEXWORD_CENTER
+rule 220  enum_textmode -> LEXWORD_LEFT_JUSTIFY
+rule 221  enum_textmode -> LEXWORD_RIGHT_JUSTIFY
+rule 222  enum_shape -> LEXWORD_BOX
+rule 223  enum_shape -> LEXWORD_RHOMB
+rule 224  enum_shape -> LEXWORD_ELLIPSE
+rule 225  enum_shape -> LEXWORD_TRIANGLE
+rule 226  enum_node_align -> LEXWORD_BOTTOM
+rule 227  enum_node_align -> LEXWORD_TOP
+rule 228  enum_node_align -> LEXWORD_CENTER
+rule 229  enum_iconstyle -> LEXWORD_BOTTOM
+rule 230  enum_iconstyle -> LEXWORD_TOP
+rule 231  enum_iconstyle -> LEXWORD_AROUND
+rule 232  edge_attribute -> LEXWORD_SOURCENAME ':' str_const
+rule 233  edge_attribute -> LEXWORD_TARGETNAME ':' str_const
+rule 234  edge_attribute -> LEXWORD_LABEL ':' str_const
+rule 235  edge_attribute -> LEXWORD_TEXTCOLOR ':' enum_color
+rule 236  edge_attribute -> LEXWORD_FONTNAME ':' str_const
+rule 237  edge_attribute -> LEXWORD_COLOR ':' enum_color
+rule 238  edge_attribute -> LEXWORD_TYPENAME ':' str_const
+rule 239  edge_attribute -> LEXWORD_THICKNESS ':' int_const
+rule 240  edge_attribute -> LEXWORD_CLASS ':' int_const
+rule 241  edge_attribute -> LEXWORD_PRIORITY ':' int_const
+rule 242  edge_attribute -> LEXWORD_ARROWWIDTH ':' int_const
+rule 243  edge_attribute -> LEXWORD_ARROWHEIGHT ':' int_const
+rule 244  edge_attribute -> LEXWORD_ARROWCOLOR ':' enum_color
+rule 245  edge_attribute -> LEXWORD_BARROWCOLOR ':' enum_color
+rule 246  edge_attribute -> LEXWORD_ARROWSIZE ':' int_const
+rule 247  edge_attribute -> LEXWORD_BARROWSIZE ':' int_const
+rule 248  edge_attribute -> LEXWORD_ARROWSTYLE ':' enum_arrowstyle
+rule 249  edge_attribute -> LEXWORD_BARROWSTYLE ':' enum_arrowstyle
+rule 250  edge_attribute -> LEXWORD_LINESTYLE ':' enum_linestyle
+rule 251  edge_attribute -> LEXWORD_ANCHOR ':' int_const
+rule 252  edge_attribute -> LEXWORD_HORDER ':' int_const
+rule 253  enum_linestyle -> LEXWORD_CONTINUOUS
+rule 254  enum_linestyle -> LEXWORD_SOLID
+rule 255  enum_linestyle -> LEXWORD_DOTTED
+rule 256  enum_linestyle -> LEXWORD_DASHED
+rule 257  enum_linestyle -> LEXWORD_INVISIBLE
+rule 258  enum_arrowstyle -> LEXWORD_NONE
+rule 259  enum_arrowstyle -> LEXWORD_LINE
+rule 260  enum_arrowstyle -> LEXWORD_SOLID
+rule 261  constraint_attribute -> LEXWORD_TITLE ':' str_const
+rule 262  constraint_attribute -> LEXWORD_PRIORITY ':' int_const
+rule 263  constraint_attribute -> LEXWORD_SIZE ':' int_const
+rule 264  constraint_attribute -> LEXWORD_NODES ':' '{' string_array '}'
+rule 265  constraint_attribute -> LEXWORD_INTERVAL ':' array_value
+rule 266  constraint_attribute -> LEXWORD_NAME ':' enum_name
+rule 267  constraint_attribute -> LEXWORD_DIMENSION ':' enum_dimension
+rule 268  string_array -> string_array str_const
+rule 269  string_array -> str_const
+rule 270  enum_name -> LEXWORD_EQUAL
+rule 271  enum_name -> LEXWORD_SMALLER
+rule 272  enum_name -> LEXWORD_GREATER
+rule 273  enum_name -> LEXWORD_NEIGHBORS
+rule 274  enum_name -> LEXWORD_LOW_MARGIN
+rule 275  enum_name -> LEXWORD_HIGH_MARGIN
+rule 276  enum_name -> LEXWORD_RANGE
+rule 277  enum_name -> LEXWORD_CLUSTER
+rule 278  enum_name -> LEXWORD_LIMIT
+rule 279  enum_name -> LEXWORD_ABOVE
+rule 280  enum_name -> LEXWORD_BELOW
+rule 281  enum_name -> LEXWORD_LEFT
+rule 282  enum_name -> LEXWORD_RIGHT
+rule 283  enum_name -> LEXWORD_IN_FRONT
+rule 284  enum_name -> LEXWORD_BEHIND
+rule 285  enum_name -> LEXWORD_EQUAL_POSITION
+rule 286  enum_name -> LEXWORD_EQUAL_ROW
+rule 287  enum_name -> LEXWORD_EQUAL_COLUMN
+rule 288  enum_name -> LEXWORD_TOP_MARGIN
+rule 289  enum_name -> LEXWORD_BOTTOM_MARGIN
+rule 290  enum_name -> LEXWORD_LEFT_MARGIN
+rule 291  enum_name -> LEXWORD_RIGHT_MARGIN
+rule 292  enum_name -> LEXWORD_UPPER_NEIGHBOR
+rule 293  enum_name -> LEXWORD_LOWER_NEIGHBOR
+rule 294  enum_name -> LEXWORD_LEFT_NEIGHBOR
+rule 295  enum_name -> LEXWORD_RIGHT_NEIGHBOR
+rule 296  enum_dimension -> 'x'
+rule 297  enum_dimension -> 'y'
+rule 298  enum_dimension -> 'z'
+rule 299  attribute_value -> LEX_INT
+rule 300  attribute_value -> LEX_FLOAT
+rule 301  attribute_value -> LEX_CHAR
+rule 302  attribute_value -> LEX_STRING
+rule 303  attribute_value -> array_value
+rule 304  array_value -> '{' index_value_list '}'
+rule 305  index_value_list -> index_value_list index_value
+rule 306  index_value_list -> index_value
+rule 307  index_value -> attribute_value
+rule 308  index_value -> index ':' attribute_value
+rule 309  index_value -> range ':' attribute_value
+rule 310  index_value -> '*' ':' attribute_value
+rule 311  range -> '[' int_const '-' int_const ']'
+rule 312  index -> LEX_INT
+rule 313  int_const -> LEX_INT
+rule 314  float_const -> LEX_FLOAT
+rule 315  str_const -> LEX_STRING
+
+Terminals, with rules where they appear
+
+$ (-1)
+'*' (42) 310
+'-' (45) 311
+':' (58) 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35
+    36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56
+    57 58 59 60 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78
+    79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99
+    100 101 191 192 193 194 195 196 197 198 199 200 201 202 203 204
+    205 206 207 208 209 210 211 212 213 214 215 216 217 218 232 233
+    234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249
+    250 251 252 261 262 263 264 265 266 267 308 309 310
+'[' (91) 311
+']' (93) 311
+'x' (120) 27 29 206 296
+'y' (121) 28 29 206 297
+'z' (122) 298
+'{' (123) 1 29 179 182 183 184 185 188 206 264 304
+'}' (125) 1 29 179 182 183 184 185 188 206 264 304
+error (256)
+LEXWORD_ABOVE (258) 279
+LEXWORD_ANCHORPOINTS (259) 201
+LEXWORD_ANCHOR (260) 251
+LEXWORD_AQUAMARINE (261) 102
+LEXWORD_AROUND (262) 231
+LEXWORD_ARROWMODE (263) 76
+LEXWORD_ARROWHEIGHT (264) 243
+LEXWORD_ARROWWIDTH (265) 242
+LEXWORD_ARROWCOLOR (266) 244
+LEXWORD_ARROWSTYLE (267) 248
+LEXWORD_ARROWSIZE (268) 246
+LEXWORD_BARROWCOLOR (269) 245
+LEXWORD_BARROWSTYLE (270) 249
+LEXWORD_BARROWSIZE (271) 247
+LEXWORD_BACKEDGE (272) 185
+LEXWORD_BARYCENTER (273) 141
+LEXWORD_BARY (274) 165
+LEXWORD_BARYMEDIAN (275) 167
+LEXWORD_BEHIND (276) 284
+LEXWORD_BELOW (277) 280
+LEXWORD_BLACK (278) 103 160
+LEXWORD_BLUE (279) 104
+LEXWORD_BMAX (280) 86
+LEXWORD_BORDERCOLOR (281) 23 199
+LEXWORD_BORDERWIDTH (282) 26 205
+LEXWORD_BOTTOM_MARGIN (283) 289
+LEXWORD_BOTTOM_TO_TOP (284) 138
+LEXWORD_BOTTOM (285) 226 229
+LEXWORD_BOX (286) 222
+LEXWORD_BENTNEAREDGE (287) 184
+LEXWORD_CENTER (288) 219 228
+LEXWORD_CFISH (289) 169
+LEXWORD_CLASSNAME (290) 52
+LEXWORD_CLASS (291) 240
+LEXWORD_CLUSTER (292) 277
+LEXWORD_CMIN (293) 88
+LEXWORD_CMAX (294) 87
+LEXWORD_COLORENTRY (295) 54
+LEXWORD_COLOR (296) 21 197 237
+LEXWORD_CONSTRAINTS (297) 144
+LEXWORD_CONSTRAINT (298) 188
+LEXWORD_CONTINUOUS (299) 253
+LEXWORD_CROSSING_WEIGHT (300) 81
+LEXWORD_CROSSING_OPT (301) 80
+LEXWORD_CROSSING_P2 (302) 79
+LEXWORD_CYAN (303) 105
+LEXWORD_DARKBLUE (304) 106
+LEXWORD_DARKCYAN (305) 107
+LEXWORD_DARKGREEN (306) 108
+LEXWORD_DARKGREY (307) 109
+LEXWORD_DARKMAGENTA (308) 110
+LEXWORD_DARKRED (309) 111
+LEXWORD_DARKYELLOW (310) 112
+LEXWORD_DASHED (311) 256
+LEXWORD_DFS (312) 157
+LEXWORD_DIMENSION (313) 267
+LEXWORD_DIRTY_EDGE_LABELS (314) 63
+LEXWORD_DISPLAY_EDGE_LABELS (315) 62
+LEXWORD_DOTTED (316) 255
+LEXWORD_EDGE1 (317) 178
+LEXWORD_EDGE2 (318) 182
+LEXWORD_EDGES (319) 83
+LEXWORD_ELLIPSE (320) 224
+LEXWORD_EQUAL_COLUMN (321) 287
+LEXWORD_EQUAL_POSITION (322) 285
+LEXWORD_EQUAL_ROW (323) 286
+LEXWORD_EQUAL (324) 270
+LEXWORD_EVERY (325) 158
+LEXWORD_FCFISH (326) 170
+LEXWORD_FPFISH (327) 172
+LEXWORD_FIXED (328) 173
+LEXWORD_FREE (329) 174
+LEXWORD_FINETUNING (330) 64
+LEXWORD_FOLDEDGE (331) 176
+LEXWORD_FOLDNODE (332) 175
+LEXWORD_FOLDING (333) 30 207
+LEXWORD_FONTNAME (334) 196 236
+LEXWORD_GOLD (335) 113
+LEXWORD_GRAPH (336) 1
+LEXWORD_GREATER (337) 272
+LEXWORD_GREEN (338) 114
+LEXWORD_GREY (339) 161
+LEXWORD_HEIGHT (340) 25 204
+LEXWORD_HIDESINGLES (341) 65
+LEXWORD_HIGH_MARGIN (342) 275
+LEXWORD_HIGH (343) 135
+LEXWORD_HIDDEN (344) 51
+LEXWORD_HORDER (345) 38 218 252
+LEXWORD_ICONFILE (346) 200
+LEXWORD_ICONHEIGHT (347) 212
+LEXWORD_ICONSTYLE (348) 214
+LEXWORD_ICONWIDTH (349) 211
+LEXWORD_INCLUDE (350) 95
+LEXWORD_INFONAME (351) 53
+LEXWORD_INFO1 (352) 18 193
+LEXWORD_INFO2 (353) 19 194
+LEXWORD_INFO3 (354) 20 195
+LEXWORD_INPUTFUNCTION (355) 98
+LEXWORD_INTERVAL (356) 265
+LEXWORD_INVISIBLE (357) 50 257
+LEXWORD_IN_FRONT (358) 283
+LEXWORD_ISI (359) 142
+LEXWORD_KHAKI (360) 115
+LEXWORD_TEXTCOLOR (361) 22 198 235
+LEXWORD_LABEL (362) 17 192 234
+LEXWORD_LATE_LABELS (363) 61
+LEXWORD_LAYOUTALGORITHM (364) 55
+LEXWORD_LAYOUTFREQUENCY (365) 56
+LEXWORD_LAYOUTPARAMETER (366) 96
+LEXWORD_LAYOUTDOWNFACTOR (367) 57
+LEXWORD_LAYOUTUPFACTOR (368) 58
+LEXWORD_LAYOUTNEARFACTOR (369) 59
+LEXWORD_LAYOUTSPLINEFACTOR (370) 60
+LEXWORD_LEFT_JUSTIFY (371) 220
+LEXWORD_LEFT_MARGIN (372) 290
+LEXWORD_LEFT_NEIGHBOR (373) 294
+LEXWORD_LEFT_TO_RIGHT (374) 139
+LEXWORD_LEFT (375) 281
+LEXWORD_LEVEL (376) 36 216
+LEXWORD_VORDER (377) 37 217
+LEXWORD_LIGHTBLUE (378) 116
+LEXWORD_LIGHTCYAN (379) 117
+LEXWORD_LIGHTGREEN (380) 118
+LEXWORD_LIGHTGREY (381) 119
+LEXWORD_LIGHTMAGENTA (382) 120
+LEXWORD_LIGHTRED (383) 121
+LEXWORD_LIGHTYELLOW (384) 122
+LEXWORD_LILAC (385) 123
+LEXWORD_LIMIT (386) 278
+LEXWORD_LINE (387) 259
+LEXWORD_LINESTYLE (388) 250
+LEXWORD_LOC (389) 29 206
+LEXWORD_LOWER_NEIGHBOR (390) 293
+LEXWORD_LOW_MARGIN (391) 274
+LEXWORD_LOW (392) 136
+LEXWORD_MAGENTA (393) 124
+LEXWORD_MANHATTEN (394) 68
+LEXWORD_MANUAL (395) 159
+LEXWORD_MAXDEPTHSLOW (396) 148
+LEXWORD_MAXDEPTH (397) 146
+LEXWORD_MAXDEGREE (398) 150
+LEXWORD_MAXINDEGREE (399) 152
+LEXWORD_MAXOUTDEGREE (400) 154
+LEXWORD_MEDIAN (401) 166
+LEXWORD_MEDIANBARY (402) 168
+LEXWORD_MINDEPTHSLOW (403) 149
+LEXWORD_MINDEPTH (404) 147
+LEXWORD_MINDEGREE (405) 151
+LEXWORD_MININDEGREE (406) 153
+LEXWORD_MINOUTDEGREE (407) 155
+LEXWORD_MINBACK (408) 156
+LEXWORD_NAME (409) 266
+LEXWORD_NEAREDGE (410) 183
+LEXWORD_NEIGHBORS (411) 273
+LEXWORD_NEAREDGES (412) 71 72
+LEXWORD_NONEAREDGES (413) 70
+LEXWORD_NODE1 (414) 177
+LEXWORD_NODE2 (415) 179
+LEXWORD_NODES (416) 84 264
+LEXWORD_NODE_ALIGN (417) 74
+LEXWORD_NONE (418) 258
+LEXWORD_NO (419) 71 164
+LEXWORD_ORANGE (420) 125
+LEXWORD_ORCHID (421) 126
+LEXWORD_ORIENTATION (422) 73
+LEXWORD_OUTPUTFUNCTION (423) 99
+LEXWORD_PFISH (424) 171
+LEXWORD_PINK (425) 127
+LEXWORD_PLANAR (426) 143
+LEXWORD_PMIN (427) 90
+LEXWORD_PMAX (428) 89
+LEXWORD_PORTSHARING (429) 75
+LEXWORD_PRIORITYPHASE (430) 67
+LEXWORD_PRIORITY (431) 241 262
+LEXWORD_PURPLE (432) 128
+LEXWORD_RANGE (433) 276
+LEXWORD_RED (434) 129
+LEXWORD_RHOMB (435) 223
+LEXWORD_RIGHT_JUSTIFY (436) 221
+LEXWORD_RIGHT_MARGIN (437) 291
+LEXWORD_RIGHT_NEIGHBOR (438) 295
+LEXWORD_RIGHT_TO_LEFT (439) 140
+LEXWORD_RIGHT (440) 282
+LEXWORD_RMIN (441) 92
+LEXWORD_RMAX (442) 91
+LEXWORD_SCALING (443) 31 208
+LEXWORD_SHAPE (444) 35 215
+LEXWORD_SHRINK (445) 32 209
+LEXWORD_SMAX (446) 93
+LEXWORD_SMANHATTEN (447) 69
+LEXWORD_SIZE (448) 263
+LEXWORD_SMALLER (449) 271
+LEXWORD_SOLID (450) 254 260
+LEXWORD_SOURCENAME (451) 232
+LEXWORD_SPLINES (452) 85
+LEXWORD_SPREADLEVEL (453) 77
+LEXWORD_STATUS (454) 39
+LEXWORD_STRETCH (455) 33 210
+LEXWORD_STRAIGHTPHASE (456) 66
+LEXWORD_TARGETNAME (457) 233
+LEXWORD_TEXTMODE (458) 34 213
+LEXWORD_THICKNESS (459) 239
+LEXWORD_TITLE (460) 16 191 261
+LEXWORD_TOPSORT (461) 97
+LEXWORD_TOP_MARGIN (462) 288
+LEXWORD_TOP_TO_BOTTOM (463) 137
+LEXWORD_TOP (464) 227 230
+LEXWORD_TREE (465) 145
+LEXWORD_TREEFACTOR (466) 78
+LEXWORD_TRIANGLE (467) 225
+LEXWORD_TURQUOISE (468) 130
+LEXWORD_TYPENAME (469) 94 202 238
+LEXWORD_UPPER_NEIGHBOR (470) 292
+LEXWORD_VIEW (471) 82
+LEXWORD_WHITE (472) 131 162
+LEXWORD_WIDTH (473) 24 203
+LEXWORD_XBASE (474) 42
+LEXWORD_XMAX (475) 40
+LEXWORD_XRASTER (476) 47
+LEXWORD_XLRASTER (477) 48
+LEXWORD_XSCROLLBAR (478) 100
+LEXWORD_XSPACE (479) 44
+LEXWORD_XLSPACE (480) 45
+LEXWORD_YBASE (481) 43
+LEXWORD_YELLOWGREEN (482) 133
+LEXWORD_YELLOW (483) 132
+LEXWORD_YES (484) 72 163
+LEXWORD_YMAX (485) 41
+LEXWORD_YRASTER (486) 49
+LEXWORD_YSCROLLBAR (487) 101
+LEXWORD_YSPACE (488) 46
+LEX_INT (489) 299 312 313
+LEX_FLOAT (490) 300 314
+LEX_CHAR (491) 301
+LEX_STRING (492) 302 315
+
+Nonterminals, with rules where they appear
+
+graph (248)
+    on left: 1, on right: 9
+graph_entry_list (249)
+    on left: 2 3, on right: 1 2
+graph_entry (250)
+    on left: 4 5 6 7 8 9 10 11 12 13 14 15, on right: 2 3
+graph_attribute (251)
+    on left: 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33
+    34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54
+    55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75
+    76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96
+    97 98 99 100 101, on right: 4
+enum_color (252)
+    on left: 102 103 104 105 106 107 108 109 110 111 112 113 114 115
+    116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131
+    132 133 134, on right: 21 22 23 197 198 199 235 237 244 245
+enum_topsort (253)
+    on left: 135 136, on right: 97
+enum_orientation (254)
+    on left: 137 138 139 140, on right: 73
+enum_layoutalgorithm (255)
+    on left: 141 142 143 144 145 146 147 148 149 150 151 152 153 154
+    155 156 157, on right: 55
+enum_layoutfrequency (256)
+    on left: 158 159, on right: 56
+enum_status (257)
+    on left: 160 161 162, on right: 39
+enum_yes_no (258)
+    on left: 163 164, on right: 61 62 63 64 65 66 67 68 69 75 79 80
+    83 84 85
+enum_cross_weight (259)
+    on left: 165 166 167 168, on right: 81
+enum_view (260)
+    on left: 169 170 171 172, on right: 82
+enum_arrow_mode (261)
+    on left: 173 174, on right: 76
+foldnode_defaults (262)
+    on left: 175, on right: 7
+foldedge_defaults (263)
+    on left: 176, on right: 8
+node_defaults (264)
+    on left: 177, on right: 5
+edge_defaults (265)
+    on left: 178, on right: 6
+node (266)
+    on left: 179, on right: 10
+node_attribute_list (267)
+    on left: 180 181, on right: 179 180
+edge (268)
+    on left: 182, on right: 11
+nearedge (269)
+    on left: 183, on right: 12
+bentnearedge (270)
+    on left: 184, on right: 13
+backedge (271)
+    on left: 185, on right: 14
+edge_attribute_list (272)
+    on left: 186 187, on right: 182 183 184 185 186
+constraint (273)
+    on left: 188, on right: 15
+constraint_attribute_list (274)
+    on left: 189 190, on right: 188 189
+node_attribute (275)
+    on left: 191 192 193 194 195 196 197 198 199 200 201 202 203 204
+    205 206 207 208 209 210 211 212 213 214 215 216 217 218,
+    on right: 175 177 180 181
+enum_textmode (276)
+    on left: 219 220 221, on right: 34 213
+enum_shape (277)
+    on left: 222 223 224 225, on right: 35 215
+enum_node_align (278)
+    on left: 226 227 228, on right: 74
+enum_iconstyle (279)
+    on left: 229 230 231, on right: 214
+edge_attribute (280)
+    on left: 232 233 234 235 236 237 238 239 240 241 242 243 244 245
+    246 247 248 249 250 251 252, on right: 176 178 186 187
+enum_linestyle (281)
+    on left: 253 254 255 256 257, on right: 250
+enum_arrowstyle (282)
+    on left: 258 259 260, on right: 248 249
+constraint_attribute (283)
+    on left: 261 262 263 264 265 266 267, on right: 189 190
+string_array (284)
+    on left: 268 269, on right: 264 268
+enum_name (285)
+    on left: 270 271 272 273 274 275 276 277 278 279 280 281 282 283
+    284 285 286 287 288 289 290 291 292 293 294 295,
+    on right: 266
+enum_dimension (286)
+    on left: 296 297 298, on right: 267
+attribute_value (287)
+    on left: 299 300 301 302 303, on right: 307 308 309 310
+array_value (288)
+    on left: 304, on right: 96 265 303
+index_value_list (289)
+    on left: 305 306, on right: 304 305
+index_value (290)
+    on left: 307 308 309 310, on right: 305 306
+range (291)
+    on left: 311, on right: 309
+index (292)
+    on left: 312, on right: 308
+int_const (293)
+    on left: 313, on right: 24 25 26 27 28 29 30 32 33 36 37 38 40
+    41 42 43 44 45 46 47 48 49 50 51 52 53 54 57 58 59 60 77 86 87
+    88 89 90 91 92 93 100 101 134 203 204 205 206 207 209 210 211 212
+    216 217 218 239 240 241 242 243 246 247 251 252 262 263 311
+float_const (294)
+    on left: 314, on right: 31 78 208
+str_const (295)
+    on left: 315, on right: 16 17 18 19 20 52 53 94 95 98 99 191 192
+    193 194 195 196 200 201 202 232 233 234 236 238 261 268 269
+
+
+state 0
+
+    LEXWORD_GRAPH	shift, and go to state 1
+
+    graph	go to state 652
+
+
+
+state 1
+
+    graph  ->  LEXWORD_GRAPH . '{' graph_entry_list '}'   (rule 1)
+
+    '{' 	shift, and go to state 2
+
+
+
+state 2
+
+    graph  ->  LEXWORD_GRAPH '{' . graph_entry_list '}'   (rule 1)
+
+    LEXWORD_ARROWMODE	shift, and go to state 3
+    LEXWORD_BACKEDGE	shift, and go to state 4
+    LEXWORD_BMAX	shift, and go to state 5
+    LEXWORD_BORDERCOLOR	shift, and go to state 6
+    LEXWORD_BORDERWIDTH	shift, and go to state 7
+    LEXWORD_BENTNEAREDGE	shift, and go to state 8
+    LEXWORD_CLASSNAME	shift, and go to state 9
+    LEXWORD_CMIN	shift, and go to state 10
+    LEXWORD_CMAX	shift, and go to state 11
+    LEXWORD_COLORENTRY	shift, and go to state 12
+    LEXWORD_COLOR	shift, and go to state 13
+    LEXWORD_CONSTRAINT	shift, and go to state 14
+    LEXWORD_CROSSING_WEIGHT	shift, and go to state 15
+    LEXWORD_CROSSING_OPT	shift, and go to state 16
+    LEXWORD_CROSSING_P2	shift, and go to state 17
+    LEXWORD_DIRTY_EDGE_LABELS	shift, and go to state 18
+    LEXWORD_DISPLAY_EDGE_LABELS	shift, and go to state 19
+    LEXWORD_EDGE1	shift, and go to state 20
+    LEXWORD_EDGE2	shift, and go to state 21
+    LEXWORD_EDGES	shift, and go to state 22
+    LEXWORD_FINETUNING	shift, and go to state 23
+    LEXWORD_FOLDEDGE	shift, and go to state 24
+    LEXWORD_FOLDNODE	shift, and go to state 25
+    LEXWORD_FOLDING	shift, and go to state 26
+    LEXWORD_GRAPH	shift, and go to state 1
+    LEXWORD_HEIGHT	shift, and go to state 27
+    LEXWORD_HIDESINGLES	shift, and go to state 28
+    LEXWORD_HIDDEN	shift, and go to state 29
+    LEXWORD_HORDER	shift, and go to state 30
+    LEXWORD_INCLUDE	shift, and go to state 31
+    LEXWORD_INFONAME	shift, and go to state 32
+    LEXWORD_INFO1	shift, and go to state 33
+    LEXWORD_INFO2	shift, and go to state 34
+    LEXWORD_INFO3	shift, and go to state 35
+    LEXWORD_INPUTFUNCTION	shift, and go to state 36
+    LEXWORD_INVISIBLE	shift, and go to state 37
+    LEXWORD_TEXTCOLOR	shift, and go to state 38
+    LEXWORD_LABEL	shift, and go to state 39
+    LEXWORD_LATE_LABELS	shift, and go to state 40
+    LEXWORD_LAYOUTALGORITHM	shift, and go to state 41
+    LEXWORD_LAYOUTFREQUENCY	shift, and go to state 42
+    LEXWORD_LAYOUTPARAMETER	shift, and go to state 43
+    LEXWORD_LAYOUTDOWNFACTOR	shift, and go to state 44
+    LEXWORD_LAYOUTUPFACTOR	shift, and go to state 45
+    LEXWORD_LAYOUTNEARFACTOR	shift, and go to state 46
+    LEXWORD_LAYOUTSPLINEFACTOR	shift, and go to state 47
+    LEXWORD_LEVEL	shift, and go to state 48
+    LEXWORD_VORDER	shift, and go to state 49
+    LEXWORD_LOC	shift, and go to state 50
+    LEXWORD_MANHATTEN	shift, and go to state 51
+    LEXWORD_NEAREDGE	shift, and go to state 52
+    LEXWORD_NEAREDGES	shift, and go to state 53
+    LEXWORD_NONEAREDGES	shift, and go to state 54
+    LEXWORD_NODE1	shift, and go to state 55
+    LEXWORD_NODE2	shift, and go to state 56
+    LEXWORD_NODES	shift, and go to state 57
+    LEXWORD_NODE_ALIGN	shift, and go to state 58
+    LEXWORD_ORIENTATION	shift, and go to state 59
+    LEXWORD_OUTPUTFUNCTION	shift, and go to state 60
+    LEXWORD_PMIN	shift, and go to state 61
+    LEXWORD_PMAX	shift, and go to state 62
+    LEXWORD_PORTSHARING	shift, and go to state 63
+    LEXWORD_PRIORITYPHASE	shift, and go to state 64
+    LEXWORD_RMIN	shift, and go to state 65
+    LEXWORD_RMAX	shift, and go to state 66
+    LEXWORD_SCALING	shift, and go to state 67
+    LEXWORD_SHAPE	shift, and go to state 68
+    LEXWORD_SHRINK	shift, and go to state 69
+    LEXWORD_SMAX	shift, and go to state 70
+    LEXWORD_SMANHATTEN	shift, and go to state 71
+    LEXWORD_SPLINES	shift, and go to state 72
+    LEXWORD_SPREADLEVEL	shift, and go to state 73
+    LEXWORD_STATUS	shift, and go to state 74
+    LEXWORD_STRETCH	shift, and go to state 75
+    LEXWORD_STRAIGHTPHASE	shift, and go to state 76
+    LEXWORD_TEXTMODE	shift, and go to state 77
+    LEXWORD_TITLE	shift, and go to state 78
+    LEXWORD_TOPSORT	shift, and go to state 79
+    LEXWORD_TREEFACTOR	shift, and go to state 80
+    LEXWORD_TYPENAME	shift, and go to state 81
+    LEXWORD_VIEW	shift, and go to state 82
+    LEXWORD_WIDTH	shift, and go to state 83
+    LEXWORD_XBASE	shift, and go to state 84
+    LEXWORD_XMAX	shift, and go to state 85
+    LEXWORD_XRASTER	shift, and go to state 86
+    LEXWORD_XLRASTER	shift, and go to state 87
+    LEXWORD_XSCROLLBAR	shift, and go to state 88
+    LEXWORD_XSPACE	shift, and go to state 89
+    LEXWORD_XLSPACE	shift, and go to state 90
+    LEXWORD_YBASE	shift, and go to state 91
+    LEXWORD_YMAX	shift, and go to state 92
+    LEXWORD_YRASTER	shift, and go to state 93
+    LEXWORD_YSCROLLBAR	shift, and go to state 94
+    LEXWORD_YSPACE	shift, and go to state 95
+    'x' 	shift, and go to state 96
+    'y' 	shift, and go to state 97
+
+    graph	go to state 98
+    graph_entry_list	go to state 99
+    graph_entry	go to state 100
+    graph_attribute	go to state 101
+    foldnode_defaults	go to state 102
+    foldedge_defaults	go to state 103
+    node_defaults	go to state 104
+    edge_defaults	go to state 105
+    node	go to state 106
+    edge	go to state 107
+    nearedge	go to state 108
+    bentnearedge	go to state 109
+    backedge	go to state 110
+    constraint	go to state 111
+
+
+
+state 3
+
+    graph_attribute  ->  LEXWORD_ARROWMODE . ':' enum_arrow_mode   (rule 76)
+
+    ':' 	shift, and go to state 112
+
+
+
+state 4
+
+    backedge  ->  LEXWORD_BACKEDGE . '{' edge_attribute_list '}'   (rule 185)
+
+    '{' 	shift, and go to state 113
+
+
+
+state 5
+
+    graph_attribute  ->  LEXWORD_BMAX . ':' int_const   (rule 86)
+
+    ':' 	shift, and go to state 114
+
+
+
+state 6
+
+    graph_attribute  ->  LEXWORD_BORDERCOLOR . ':' enum_color   (rule 23)
+
+    ':' 	shift, and go to state 115
+
+
+
+state 7
+
+    graph_attribute  ->  LEXWORD_BORDERWIDTH . ':' int_const   (rule 26)
+
+    ':' 	shift, and go to state 116
+
+
+
+state 8
+
+    bentnearedge  ->  LEXWORD_BENTNEAREDGE . '{' edge_attribute_list '}'   (rule 184)
+
+    '{' 	shift, and go to state 117
+
+
+
+state 9
+
+    graph_attribute  ->  LEXWORD_CLASSNAME . int_const ':' str_const   (rule 52)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 119
+
+
+
+state 10
+
+    graph_attribute  ->  LEXWORD_CMIN . ':' int_const   (rule 88)
+
+    ':' 	shift, and go to state 120
+
+
+
+state 11
+
+    graph_attribute  ->  LEXWORD_CMAX . ':' int_const   (rule 87)
+
+    ':' 	shift, and go to state 121
+
+
+
+state 12
+
+    graph_attribute  ->  LEXWORD_COLORENTRY . int_const ':' int_const int_const int_const   (rule 54)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 122
+
+
+
+state 13
+
+    graph_attribute  ->  LEXWORD_COLOR . ':' enum_color   (rule 21)
+
+    ':' 	shift, and go to state 123
+
+
+
+state 14
+
+    constraint  ->  LEXWORD_CONSTRAINT . '{' constraint_attribute_list '}'   (rule 188)
+
+    '{' 	shift, and go to state 124
+
+
+
+state 15
+
+    graph_attribute  ->  LEXWORD_CROSSING_WEIGHT . ':' enum_cross_weight   (rule 81)
+
+    ':' 	shift, and go to state 125
+
+
+
+state 16
+
+    graph_attribute  ->  LEXWORD_CROSSING_OPT . ':' enum_yes_no   (rule 80)
+
+    ':' 	shift, and go to state 126
+
+
+
+state 17
+
+    graph_attribute  ->  LEXWORD_CROSSING_P2 . ':' enum_yes_no   (rule 79)
+
+    ':' 	shift, and go to state 127
+
+
+
+state 18
+
+    graph_attribute  ->  LEXWORD_DIRTY_EDGE_LABELS . ':' enum_yes_no   (rule 63)
+
+    ':' 	shift, and go to state 128
+
+
+
+state 19
+
+    graph_attribute  ->  LEXWORD_DISPLAY_EDGE_LABELS . ':' enum_yes_no   (rule 62)
+
+    ':' 	shift, and go to state 129
+
+
+
+state 20
+
+    edge_defaults  ->  LEXWORD_EDGE1 . edge_attribute   (rule 178)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+
+    edge_attribute	go to state 151
+
+
+
+state 21
+
+    edge  ->  LEXWORD_EDGE2 . '{' edge_attribute_list '}'   (rule 182)
+
+    '{' 	shift, and go to state 152
+
+
+
+state 22
+
+    graph_attribute  ->  LEXWORD_EDGES . ':' enum_yes_no   (rule 83)
+
+    ':' 	shift, and go to state 153
+
+
+
+state 23
+
+    graph_attribute  ->  LEXWORD_FINETUNING . ':' enum_yes_no   (rule 64)
+
+    ':' 	shift, and go to state 154
+
+
+
+state 24
+
+    foldedge_defaults  ->  LEXWORD_FOLDEDGE . edge_attribute   (rule 176)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+
+    edge_attribute	go to state 155
+
+
+
+state 25
+
+    foldnode_defaults  ->  LEXWORD_FOLDNODE . node_attribute   (rule 175)
+
+    LEXWORD_ANCHORPOINTS	shift, and go to state 156
+    LEXWORD_BORDERCOLOR	shift, and go to state 157
+    LEXWORD_BORDERWIDTH	shift, and go to state 158
+    LEXWORD_COLOR	shift, and go to state 159
+    LEXWORD_FOLDING	shift, and go to state 160
+    LEXWORD_FONTNAME	shift, and go to state 161
+    LEXWORD_HEIGHT	shift, and go to state 162
+    LEXWORD_HORDER	shift, and go to state 163
+    LEXWORD_ICONFILE	shift, and go to state 164
+    LEXWORD_ICONHEIGHT	shift, and go to state 165
+    LEXWORD_ICONSTYLE	shift, and go to state 166
+    LEXWORD_ICONWIDTH	shift, and go to state 167
+    LEXWORD_INFO1	shift, and go to state 168
+    LEXWORD_INFO2	shift, and go to state 169
+    LEXWORD_INFO3	shift, and go to state 170
+    LEXWORD_TEXTCOLOR	shift, and go to state 171
+    LEXWORD_LABEL	shift, and go to state 172
+    LEXWORD_LEVEL	shift, and go to state 173
+    LEXWORD_VORDER	shift, and go to state 174
+    LEXWORD_LOC	shift, and go to state 175
+    LEXWORD_SCALING	shift, and go to state 176
+    LEXWORD_SHAPE	shift, and go to state 177
+    LEXWORD_SHRINK	shift, and go to state 178
+    LEXWORD_STRETCH	shift, and go to state 179
+    LEXWORD_TEXTMODE	shift, and go to state 180
+    LEXWORD_TITLE	shift, and go to state 181
+    LEXWORD_TYPENAME	shift, and go to state 182
+    LEXWORD_WIDTH	shift, and go to state 183
+
+    node_attribute	go to state 184
+
+
+
+state 26
+
+    graph_attribute  ->  LEXWORD_FOLDING . ':' int_const   (rule 30)
+
+    ':' 	shift, and go to state 185
+
+
+
+state 27
+
+    graph_attribute  ->  LEXWORD_HEIGHT . ':' int_const   (rule 25)
+
+    ':' 	shift, and go to state 186
+
+
+
+state 28
+
+    graph_attribute  ->  LEXWORD_HIDESINGLES . ':' enum_yes_no   (rule 65)
+
+    ':' 	shift, and go to state 187
+
+
+
+state 29
+
+    graph_attribute  ->  LEXWORD_HIDDEN . ':' int_const   (rule 51)
+
+    ':' 	shift, and go to state 188
+
+
+
+state 30
+
+    graph_attribute  ->  LEXWORD_HORDER . ':' int_const   (rule 38)
+
+    ':' 	shift, and go to state 189
+
+
+
+state 31
+
+    graph_attribute  ->  LEXWORD_INCLUDE . ':' str_const   (rule 95)
+
+    ':' 	shift, and go to state 190
+
+
+
+state 32
+
+    graph_attribute  ->  LEXWORD_INFONAME . int_const ':' str_const   (rule 53)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 191
+
+
+
+state 33
+
+    graph_attribute  ->  LEXWORD_INFO1 . ':' str_const   (rule 18)
+
+    ':' 	shift, and go to state 192
+
+
+
+state 34
+
+    graph_attribute  ->  LEXWORD_INFO2 . ':' str_const   (rule 19)
+
+    ':' 	shift, and go to state 193
+
+
+
+state 35
+
+    graph_attribute  ->  LEXWORD_INFO3 . ':' str_const   (rule 20)
+
+    ':' 	shift, and go to state 194
+
+
+
+state 36
+
+    graph_attribute  ->  LEXWORD_INPUTFUNCTION . ':' str_const   (rule 98)
+
+    ':' 	shift, and go to state 195
+
+
+
+state 37
+
+    graph_attribute  ->  LEXWORD_INVISIBLE . ':' int_const   (rule 50)
+
+    ':' 	shift, and go to state 196
+
+
+
+state 38
+
+    graph_attribute  ->  LEXWORD_TEXTCOLOR . ':' enum_color   (rule 22)
+
+    ':' 	shift, and go to state 197
+
+
+
+state 39
+
+    graph_attribute  ->  LEXWORD_LABEL . ':' str_const   (rule 17)
+
+    ':' 	shift, and go to state 198
+
+
+
+state 40
+
+    graph_attribute  ->  LEXWORD_LATE_LABELS . ':' enum_yes_no   (rule 61)
+
+    ':' 	shift, and go to state 199
+
+
+
+state 41
+
+    graph_attribute  ->  LEXWORD_LAYOUTALGORITHM . ':' enum_layoutalgorithm   (rule 55)
+
+    ':' 	shift, and go to state 200
+
+
+
+state 42
+
+    graph_attribute  ->  LEXWORD_LAYOUTFREQUENCY . ':' enum_layoutfrequency   (rule 56)
+
+    ':' 	shift, and go to state 201
+
+
+
+state 43
+
+    graph_attribute  ->  LEXWORD_LAYOUTPARAMETER . ':' array_value   (rule 96)
+
+    ':' 	shift, and go to state 202
+
+
+
+state 44
+
+    graph_attribute  ->  LEXWORD_LAYOUTDOWNFACTOR . ':' int_const   (rule 57)
+
+    ':' 	shift, and go to state 203
+
+
+
+state 45
+
+    graph_attribute  ->  LEXWORD_LAYOUTUPFACTOR . ':' int_const   (rule 58)
+
+    ':' 	shift, and go to state 204
+
+
+
+state 46
+
+    graph_attribute  ->  LEXWORD_LAYOUTNEARFACTOR . ':' int_const   (rule 59)
+
+    ':' 	shift, and go to state 205
+
+
+
+state 47
+
+    graph_attribute  ->  LEXWORD_LAYOUTSPLINEFACTOR . ':' int_const   (rule 60)
+
+    ':' 	shift, and go to state 206
+
+
+
+state 48
+
+    graph_attribute  ->  LEXWORD_LEVEL . ':' int_const   (rule 36)
+
+    ':' 	shift, and go to state 207
+
+
+
+state 49
+
+    graph_attribute  ->  LEXWORD_VORDER . ':' int_const   (rule 37)
+
+    ':' 	shift, and go to state 208
+
+
+
+state 50
+
+    graph_attribute  ->  LEXWORD_LOC . '{' 'x' ':' int_const 'y' ':' int_const '}'   (rule 29)
+
+    '{' 	shift, and go to state 209
+
+
+
+state 51
+
+    graph_attribute  ->  LEXWORD_MANHATTEN . ':' enum_yes_no   (rule 68)
+
+    ':' 	shift, and go to state 210
+
+
+
+state 52
+
+    nearedge  ->  LEXWORD_NEAREDGE . '{' edge_attribute_list '}'   (rule 183)
+
+    '{' 	shift, and go to state 211
+
+
+
+state 53
+
+    graph_attribute  ->  LEXWORD_NEAREDGES . ':' LEXWORD_NO   (rule 71)
+    graph_attribute  ->  LEXWORD_NEAREDGES . ':' LEXWORD_YES   (rule 72)
+
+    ':' 	shift, and go to state 212
+
+
+
+state 54
+
+    graph_attribute  ->  LEXWORD_NONEAREDGES .   (rule 70)
+
+    $default	reduce using rule 70 (graph_attribute)
+
+
+
+state 55
+
+    node_defaults  ->  LEXWORD_NODE1 . node_attribute   (rule 177)
+
+    LEXWORD_ANCHORPOINTS	shift, and go to state 156
+    LEXWORD_BORDERCOLOR	shift, and go to state 157
+    LEXWORD_BORDERWIDTH	shift, and go to state 158
+    LEXWORD_COLOR	shift, and go to state 159
+    LEXWORD_FOLDING	shift, and go to state 160
+    LEXWORD_FONTNAME	shift, and go to state 161
+    LEXWORD_HEIGHT	shift, and go to state 162
+    LEXWORD_HORDER	shift, and go to state 163
+    LEXWORD_ICONFILE	shift, and go to state 164
+    LEXWORD_ICONHEIGHT	shift, and go to state 165
+    LEXWORD_ICONSTYLE	shift, and go to state 166
+    LEXWORD_ICONWIDTH	shift, and go to state 167
+    LEXWORD_INFO1	shift, and go to state 168
+    LEXWORD_INFO2	shift, and go to state 169
+    LEXWORD_INFO3	shift, and go to state 170
+    LEXWORD_TEXTCOLOR	shift, and go to state 171
+    LEXWORD_LABEL	shift, and go to state 172
+    LEXWORD_LEVEL	shift, and go to state 173
+    LEXWORD_VORDER	shift, and go to state 174
+    LEXWORD_LOC	shift, and go to state 175
+    LEXWORD_SCALING	shift, and go to state 176
+    LEXWORD_SHAPE	shift, and go to state 177
+    LEXWORD_SHRINK	shift, and go to state 178
+    LEXWORD_STRETCH	shift, and go to state 179
+    LEXWORD_TEXTMODE	shift, and go to state 180
+    LEXWORD_TITLE	shift, and go to state 181
+    LEXWORD_TYPENAME	shift, and go to state 182
+    LEXWORD_WIDTH	shift, and go to state 183
+
+    node_attribute	go to state 213
+
+
+
+state 56
+
+    node  ->  LEXWORD_NODE2 . '{' node_attribute_list '}'   (rule 179)
+
+    '{' 	shift, and go to state 214
+
+
+
+state 57
+
+    graph_attribute  ->  LEXWORD_NODES . ':' enum_yes_no   (rule 84)
+
+    ':' 	shift, and go to state 215
+
+
+
+state 58
+
+    graph_attribute  ->  LEXWORD_NODE_ALIGN . ':' enum_node_align   (rule 74)
+
+    ':' 	shift, and go to state 216
+
+
+
+state 59
+
+    graph_attribute  ->  LEXWORD_ORIENTATION . ':' enum_orientation   (rule 73)
+
+    ':' 	shift, and go to state 217
+
+
+
+state 60
+
+    graph_attribute  ->  LEXWORD_OUTPUTFUNCTION . ':' str_const   (rule 99)
+
+    ':' 	shift, and go to state 218
+
+
+
+state 61
+
+    graph_attribute  ->  LEXWORD_PMIN . ':' int_const   (rule 90)
+
+    ':' 	shift, and go to state 219
+
+
+
+state 62
+
+    graph_attribute  ->  LEXWORD_PMAX . ':' int_const   (rule 89)
+
+    ':' 	shift, and go to state 220
+
+
+
+state 63
+
+    graph_attribute  ->  LEXWORD_PORTSHARING . ':' enum_yes_no   (rule 75)
+
+    ':' 	shift, and go to state 221
+
+
+
+state 64
+
+    graph_attribute  ->  LEXWORD_PRIORITYPHASE . ':' enum_yes_no   (rule 67)
+
+    ':' 	shift, and go to state 222
+
+
+
+state 65
+
+    graph_attribute  ->  LEXWORD_RMIN . ':' int_const   (rule 92)
+
+    ':' 	shift, and go to state 223
+
+
+
+state 66
+
+    graph_attribute  ->  LEXWORD_RMAX . ':' int_const   (rule 91)
+
+    ':' 	shift, and go to state 224
+
+
+
+state 67
+
+    graph_attribute  ->  LEXWORD_SCALING . ':' float_const   (rule 31)
+
+    ':' 	shift, and go to state 225
+
+
+
+state 68
+
+    graph_attribute  ->  LEXWORD_SHAPE . ':' enum_shape   (rule 35)
+
+    ':' 	shift, and go to state 226
+
+
+
+state 69
+
+    graph_attribute  ->  LEXWORD_SHRINK . ':' int_const   (rule 32)
+
+    ':' 	shift, and go to state 227
+
+
+
+state 70
+
+    graph_attribute  ->  LEXWORD_SMAX . ':' int_const   (rule 93)
+
+    ':' 	shift, and go to state 228
+
+
+
+state 71
+
+    graph_attribute  ->  LEXWORD_SMANHATTEN . ':' enum_yes_no   (rule 69)
+
+    ':' 	shift, and go to state 229
+
+
+
+state 72
+
+    graph_attribute  ->  LEXWORD_SPLINES . ':' enum_yes_no   (rule 85)
+
+    ':' 	shift, and go to state 230
+
+
+
+state 73
+
+    graph_attribute  ->  LEXWORD_SPREADLEVEL . ':' int_const   (rule 77)
+
+    ':' 	shift, and go to state 231
+
+
+
+state 74
+
+    graph_attribute  ->  LEXWORD_STATUS . ':' enum_status   (rule 39)
+
+    ':' 	shift, and go to state 232
+
+
+
+state 75
+
+    graph_attribute  ->  LEXWORD_STRETCH . ':' int_const   (rule 33)
+
+    ':' 	shift, and go to state 233
+
+
+
+state 76
+
+    graph_attribute  ->  LEXWORD_STRAIGHTPHASE . ':' enum_yes_no   (rule 66)
+
+    ':' 	shift, and go to state 234
+
+
+
+state 77
+
+    graph_attribute  ->  LEXWORD_TEXTMODE . ':' enum_textmode   (rule 34)
+
+    ':' 	shift, and go to state 235
+
+
+
+state 78
+
+    graph_attribute  ->  LEXWORD_TITLE . ':' str_const   (rule 16)
+
+    ':' 	shift, and go to state 236
+
+
+
+state 79
+
+    graph_attribute  ->  LEXWORD_TOPSORT . ':' enum_topsort   (rule 97)
+
+    ':' 	shift, and go to state 237
+
+
+
+state 80
+
+    graph_attribute  ->  LEXWORD_TREEFACTOR . ':' float_const   (rule 78)
+
+    ':' 	shift, and go to state 238
+
+
+
+state 81
+
+    graph_attribute  ->  LEXWORD_TYPENAME . ':' str_const   (rule 94)
+
+    ':' 	shift, and go to state 239
+
+
+
+state 82
+
+    graph_attribute  ->  LEXWORD_VIEW . ':' enum_view   (rule 82)
+
+    ':' 	shift, and go to state 240
+
+
+
+state 83
+
+    graph_attribute  ->  LEXWORD_WIDTH . ':' int_const   (rule 24)
+
+    ':' 	shift, and go to state 241
+
+
+
+state 84
+
+    graph_attribute  ->  LEXWORD_XBASE . ':' int_const   (rule 42)
+
+    ':' 	shift, and go to state 242
+
+
+
+state 85
+
+    graph_attribute  ->  LEXWORD_XMAX . ':' int_const   (rule 40)
+
+    ':' 	shift, and go to state 243
+
+
+
+state 86
+
+    graph_attribute  ->  LEXWORD_XRASTER . ':' int_const   (rule 47)
+
+    ':' 	shift, and go to state 244
+
+
+
+state 87
+
+    graph_attribute  ->  LEXWORD_XLRASTER . ':' int_const   (rule 48)
+
+    ':' 	shift, and go to state 245
+
+
+
+state 88
+
+    graph_attribute  ->  LEXWORD_XSCROLLBAR . ':' int_const   (rule 100)
+
+    ':' 	shift, and go to state 246
+
+
+
+state 89
+
+    graph_attribute  ->  LEXWORD_XSPACE . ':' int_const   (rule 44)
+
+    ':' 	shift, and go to state 247
+
+
+
+state 90
+
+    graph_attribute  ->  LEXWORD_XLSPACE . ':' int_const   (rule 45)
+
+    ':' 	shift, and go to state 248
+
+
+
+state 91
+
+    graph_attribute  ->  LEXWORD_YBASE . ':' int_const   (rule 43)
+
+    ':' 	shift, and go to state 249
+
+
+
+state 92
+
+    graph_attribute  ->  LEXWORD_YMAX . ':' int_const   (rule 41)
+
+    ':' 	shift, and go to state 250
+
+
+
+state 93
+
+    graph_attribute  ->  LEXWORD_YRASTER . ':' int_const   (rule 49)
+
+    ':' 	shift, and go to state 251
+
+
+
+state 94
+
+    graph_attribute  ->  LEXWORD_YSCROLLBAR . ':' int_const   (rule 101)
+
+    ':' 	shift, and go to state 252
+
+
+
+state 95
+
+    graph_attribute  ->  LEXWORD_YSPACE . ':' int_const   (rule 46)
+
+    ':' 	shift, and go to state 253
+
+
+
+state 96
+
+    graph_attribute  ->  'x' . ':' int_const   (rule 27)
+
+    ':' 	shift, and go to state 254
+
+
+
+state 97
+
+    graph_attribute  ->  'y' . ':' int_const   (rule 28)
+
+    ':' 	shift, and go to state 255
+
+
+
+state 98
+
+    graph_entry  ->  graph .   (rule 9)
+
+    $default	reduce using rule 9 (graph_entry)
+
+
+
+state 99
+
+    graph  ->  LEXWORD_GRAPH '{' graph_entry_list . '}'   (rule 1)
+    graph_entry_list  ->  graph_entry_list . graph_entry   (rule 2)
+
+    LEXWORD_ARROWMODE	shift, and go to state 3
+    LEXWORD_BACKEDGE	shift, and go to state 4
+    LEXWORD_BMAX	shift, and go to state 5
+    LEXWORD_BORDERCOLOR	shift, and go to state 6
+    LEXWORD_BORDERWIDTH	shift, and go to state 7
+    LEXWORD_BENTNEAREDGE	shift, and go to state 8
+    LEXWORD_CLASSNAME	shift, and go to state 9
+    LEXWORD_CMIN	shift, and go to state 10
+    LEXWORD_CMAX	shift, and go to state 11
+    LEXWORD_COLORENTRY	shift, and go to state 12
+    LEXWORD_COLOR	shift, and go to state 13
+    LEXWORD_CONSTRAINT	shift, and go to state 14
+    LEXWORD_CROSSING_WEIGHT	shift, and go to state 15
+    LEXWORD_CROSSING_OPT	shift, and go to state 16
+    LEXWORD_CROSSING_P2	shift, and go to state 17
+    LEXWORD_DIRTY_EDGE_LABELS	shift, and go to state 18
+    LEXWORD_DISPLAY_EDGE_LABELS	shift, and go to state 19
+    LEXWORD_EDGE1	shift, and go to state 20
+    LEXWORD_EDGE2	shift, and go to state 21
+    LEXWORD_EDGES	shift, and go to state 22
+    LEXWORD_FINETUNING	shift, and go to state 23
+    LEXWORD_FOLDEDGE	shift, and go to state 24
+    LEXWORD_FOLDNODE	shift, and go to state 25
+    LEXWORD_FOLDING	shift, and go to state 26
+    LEXWORD_GRAPH	shift, and go to state 1
+    LEXWORD_HEIGHT	shift, and go to state 27
+    LEXWORD_HIDESINGLES	shift, and go to state 28
+    LEXWORD_HIDDEN	shift, and go to state 29
+    LEXWORD_HORDER	shift, and go to state 30
+    LEXWORD_INCLUDE	shift, and go to state 31
+    LEXWORD_INFONAME	shift, and go to state 32
+    LEXWORD_INFO1	shift, and go to state 33
+    LEXWORD_INFO2	shift, and go to state 34
+    LEXWORD_INFO3	shift, and go to state 35
+    LEXWORD_INPUTFUNCTION	shift, and go to state 36
+    LEXWORD_INVISIBLE	shift, and go to state 37
+    LEXWORD_TEXTCOLOR	shift, and go to state 38
+    LEXWORD_LABEL	shift, and go to state 39
+    LEXWORD_LATE_LABELS	shift, and go to state 40
+    LEXWORD_LAYOUTALGORITHM	shift, and go to state 41
+    LEXWORD_LAYOUTFREQUENCY	shift, and go to state 42
+    LEXWORD_LAYOUTPARAMETER	shift, and go to state 43
+    LEXWORD_LAYOUTDOWNFACTOR	shift, and go to state 44
+    LEXWORD_LAYOUTUPFACTOR	shift, and go to state 45
+    LEXWORD_LAYOUTNEARFACTOR	shift, and go to state 46
+    LEXWORD_LAYOUTSPLINEFACTOR	shift, and go to state 47
+    LEXWORD_LEVEL	shift, and go to state 48
+    LEXWORD_VORDER	shift, and go to state 49
+    LEXWORD_LOC	shift, and go to state 50
+    LEXWORD_MANHATTEN	shift, and go to state 51
+    LEXWORD_NEAREDGE	shift, and go to state 52
+    LEXWORD_NEAREDGES	shift, and go to state 53
+    LEXWORD_NONEAREDGES	shift, and go to state 54
+    LEXWORD_NODE1	shift, and go to state 55
+    LEXWORD_NODE2	shift, and go to state 56
+    LEXWORD_NODES	shift, and go to state 57
+    LEXWORD_NODE_ALIGN	shift, and go to state 58
+    LEXWORD_ORIENTATION	shift, and go to state 59
+    LEXWORD_OUTPUTFUNCTION	shift, and go to state 60
+    LEXWORD_PMIN	shift, and go to state 61
+    LEXWORD_PMAX	shift, and go to state 62
+    LEXWORD_PORTSHARING	shift, and go to state 63
+    LEXWORD_PRIORITYPHASE	shift, and go to state 64
+    LEXWORD_RMIN	shift, and go to state 65
+    LEXWORD_RMAX	shift, and go to state 66
+    LEXWORD_SCALING	shift, and go to state 67
+    LEXWORD_SHAPE	shift, and go to state 68
+    LEXWORD_SHRINK	shift, and go to state 69
+    LEXWORD_SMAX	shift, and go to state 70
+    LEXWORD_SMANHATTEN	shift, and go to state 71
+    LEXWORD_SPLINES	shift, and go to state 72
+    LEXWORD_SPREADLEVEL	shift, and go to state 73
+    LEXWORD_STATUS	shift, and go to state 74
+    LEXWORD_STRETCH	shift, and go to state 75
+    LEXWORD_STRAIGHTPHASE	shift, and go to state 76
+    LEXWORD_TEXTMODE	shift, and go to state 77
+    LEXWORD_TITLE	shift, and go to state 78
+    LEXWORD_TOPSORT	shift, and go to state 79
+    LEXWORD_TREEFACTOR	shift, and go to state 80
+    LEXWORD_TYPENAME	shift, and go to state 81
+    LEXWORD_VIEW	shift, and go to state 82
+    LEXWORD_WIDTH	shift, and go to state 83
+    LEXWORD_XBASE	shift, and go to state 84
+    LEXWORD_XMAX	shift, and go to state 85
+    LEXWORD_XRASTER	shift, and go to state 86
+    LEXWORD_XLRASTER	shift, and go to state 87
+    LEXWORD_XSCROLLBAR	shift, and go to state 88
+    LEXWORD_XSPACE	shift, and go to state 89
+    LEXWORD_XLSPACE	shift, and go to state 90
+    LEXWORD_YBASE	shift, and go to state 91
+    LEXWORD_YMAX	shift, and go to state 92
+    LEXWORD_YRASTER	shift, and go to state 93
+    LEXWORD_YSCROLLBAR	shift, and go to state 94
+    LEXWORD_YSPACE	shift, and go to state 95
+    '}' 	shift, and go to state 256
+    'x' 	shift, and go to state 96
+    'y' 	shift, and go to state 97
+
+    graph	go to state 98
+    graph_entry	go to state 257
+    graph_attribute	go to state 101
+    foldnode_defaults	go to state 102
+    foldedge_defaults	go to state 103
+    node_defaults	go to state 104
+    edge_defaults	go to state 105
+    node	go to state 106
+    edge	go to state 107
+    nearedge	go to state 108
+    bentnearedge	go to state 109
+    backedge	go to state 110
+    constraint	go to state 111
+
+
+
+state 100
+
+    graph_entry_list  ->  graph_entry .   (rule 3)
+
+    $default	reduce using rule 3 (graph_entry_list)
+
+
+
+state 101
+
+    graph_entry  ->  graph_attribute .   (rule 4)
+
+    $default	reduce using rule 4 (graph_entry)
+
+
+
+state 102
+
+    graph_entry  ->  foldnode_defaults .   (rule 7)
+
+    $default	reduce using rule 7 (graph_entry)
+
+
+
+state 103
+
+    graph_entry  ->  foldedge_defaults .   (rule 8)
+
+    $default	reduce using rule 8 (graph_entry)
+
+
+
+state 104
+
+    graph_entry  ->  node_defaults .   (rule 5)
+
+    $default	reduce using rule 5 (graph_entry)
+
+
+
+state 105
+
+    graph_entry  ->  edge_defaults .   (rule 6)
+
+    $default	reduce using rule 6 (graph_entry)
+
+
+
+state 106
+
+    graph_entry  ->  node .   (rule 10)
+
+    $default	reduce using rule 10 (graph_entry)
+
+
+
+state 107
+
+    graph_entry  ->  edge .   (rule 11)
+
+    $default	reduce using rule 11 (graph_entry)
+
+
+
+state 108
+
+    graph_entry  ->  nearedge .   (rule 12)
+
+    $default	reduce using rule 12 (graph_entry)
+
+
+
+state 109
+
+    graph_entry  ->  bentnearedge .   (rule 13)
+
+    $default	reduce using rule 13 (graph_entry)
+
+
+
+state 110
+
+    graph_entry  ->  backedge .   (rule 14)
+
+    $default	reduce using rule 14 (graph_entry)
+
+
+
+state 111
+
+    graph_entry  ->  constraint .   (rule 15)
+
+    $default	reduce using rule 15 (graph_entry)
+
+
+
+state 112
+
+    graph_attribute  ->  LEXWORD_ARROWMODE ':' . enum_arrow_mode   (rule 76)
+
+    LEXWORD_FIXED	shift, and go to state 258
+    LEXWORD_FREE	shift, and go to state 259
+
+    enum_arrow_mode	go to state 260
+
+
+
+state 113
+
+    backedge  ->  LEXWORD_BACKEDGE '{' . edge_attribute_list '}'   (rule 185)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+
+    edge_attribute_list	go to state 261
+    edge_attribute	go to state 262
+
+
+
+state 114
+
+    graph_attribute  ->  LEXWORD_BMAX ':' . int_const   (rule 86)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 263
+
+
+
+state 115
+
+    graph_attribute  ->  LEXWORD_BORDERCOLOR ':' . enum_color   (rule 23)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 296
+    int_const	go to state 297
+
+
+
+state 116
+
+    graph_attribute  ->  LEXWORD_BORDERWIDTH ':' . int_const   (rule 26)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 298
+
+
+
+state 117
+
+    bentnearedge  ->  LEXWORD_BENTNEAREDGE '{' . edge_attribute_list '}'   (rule 184)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+
+    edge_attribute_list	go to state 299
+    edge_attribute	go to state 262
+
+
+
+state 118
+
+    int_const  ->  LEX_INT .   (rule 313)
+
+    $default	reduce using rule 313 (int_const)
+
+
+
+state 119
+
+    graph_attribute  ->  LEXWORD_CLASSNAME int_const . ':' str_const   (rule 52)
+
+    ':' 	shift, and go to state 300
+
+
+
+state 120
+
+    graph_attribute  ->  LEXWORD_CMIN ':' . int_const   (rule 88)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 301
+
+
+
+state 121
+
+    graph_attribute  ->  LEXWORD_CMAX ':' . int_const   (rule 87)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 302
+
+
+
+state 122
+
+    graph_attribute  ->  LEXWORD_COLORENTRY int_const . ':' int_const int_const int_const   (rule 54)
+
+    ':' 	shift, and go to state 303
+
+
+
+state 123
+
+    graph_attribute  ->  LEXWORD_COLOR ':' . enum_color   (rule 21)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 304
+    int_const	go to state 297
+
+
+
+state 124
+
+    constraint  ->  LEXWORD_CONSTRAINT '{' . constraint_attribute_list '}'   (rule 188)
+
+    LEXWORD_DIMENSION	shift, and go to state 305
+    LEXWORD_INTERVAL	shift, and go to state 306
+    LEXWORD_NAME	shift, and go to state 307
+    LEXWORD_NODES	shift, and go to state 308
+    LEXWORD_PRIORITY	shift, and go to state 309
+    LEXWORD_SIZE	shift, and go to state 310
+    LEXWORD_TITLE	shift, and go to state 311
+
+    constraint_attribute_list	go to state 312
+    constraint_attribute	go to state 313
+
+
+
+state 125
+
+    graph_attribute  ->  LEXWORD_CROSSING_WEIGHT ':' . enum_cross_weight   (rule 81)
+
+    LEXWORD_BARY	shift, and go to state 314
+    LEXWORD_BARYMEDIAN	shift, and go to state 315
+    LEXWORD_MEDIAN	shift, and go to state 316
+    LEXWORD_MEDIANBARY	shift, and go to state 317
+
+    enum_cross_weight	go to state 318
+
+
+
+state 126
+
+    graph_attribute  ->  LEXWORD_CROSSING_OPT ':' . enum_yes_no   (rule 80)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 321
+
+
+
+state 127
+
+    graph_attribute  ->  LEXWORD_CROSSING_P2 ':' . enum_yes_no   (rule 79)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 322
+
+
+
+state 128
+
+    graph_attribute  ->  LEXWORD_DIRTY_EDGE_LABELS ':' . enum_yes_no   (rule 63)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 323
+
+
+
+state 129
+
+    graph_attribute  ->  LEXWORD_DISPLAY_EDGE_LABELS ':' . enum_yes_no   (rule 62)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 324
+
+
+
+state 130
+
+    edge_attribute  ->  LEXWORD_ANCHOR . ':' int_const   (rule 251)
+
+    ':' 	shift, and go to state 325
+
+
+
+state 131
+
+    edge_attribute  ->  LEXWORD_ARROWHEIGHT . ':' int_const   (rule 243)
+
+    ':' 	shift, and go to state 326
+
+
+
+state 132
+
+    edge_attribute  ->  LEXWORD_ARROWWIDTH . ':' int_const   (rule 242)
+
+    ':' 	shift, and go to state 327
+
+
+
+state 133
+
+    edge_attribute  ->  LEXWORD_ARROWCOLOR . ':' enum_color   (rule 244)
+
+    ':' 	shift, and go to state 328
+
+
+
+state 134
+
+    edge_attribute  ->  LEXWORD_ARROWSTYLE . ':' enum_arrowstyle   (rule 248)
+
+    ':' 	shift, and go to state 329
+
+
+
+state 135
+
+    edge_attribute  ->  LEXWORD_ARROWSIZE . ':' int_const   (rule 246)
+
+    ':' 	shift, and go to state 330
+
+
+
+state 136
+
+    edge_attribute  ->  LEXWORD_BARROWCOLOR . ':' enum_color   (rule 245)
+
+    ':' 	shift, and go to state 331
+
+
+
+state 137
+
+    edge_attribute  ->  LEXWORD_BARROWSTYLE . ':' enum_arrowstyle   (rule 249)
+
+    ':' 	shift, and go to state 332
+
+
+
+state 138
+
+    edge_attribute  ->  LEXWORD_BARROWSIZE . ':' int_const   (rule 247)
+
+    ':' 	shift, and go to state 333
+
+
+
+state 139
+
+    edge_attribute  ->  LEXWORD_CLASS . ':' int_const   (rule 240)
+
+    ':' 	shift, and go to state 334
+
+
+
+state 140
+
+    edge_attribute  ->  LEXWORD_COLOR . ':' enum_color   (rule 237)
+
+    ':' 	shift, and go to state 335
+
+
+
+state 141
+
+    edge_attribute  ->  LEXWORD_FONTNAME . ':' str_const   (rule 236)
+
+    ':' 	shift, and go to state 336
+
+
+
+state 142
+
+    edge_attribute  ->  LEXWORD_HORDER . ':' int_const   (rule 252)
+
+    ':' 	shift, and go to state 337
+
+
+
+state 143
+
+    edge_attribute  ->  LEXWORD_TEXTCOLOR . ':' enum_color   (rule 235)
+
+    ':' 	shift, and go to state 338
+
+
+
+state 144
+
+    edge_attribute  ->  LEXWORD_LABEL . ':' str_const   (rule 234)
+
+    ':' 	shift, and go to state 339
+
+
+
+state 145
+
+    edge_attribute  ->  LEXWORD_LINESTYLE . ':' enum_linestyle   (rule 250)
+
+    ':' 	shift, and go to state 340
+
+
+
+state 146
+
+    edge_attribute  ->  LEXWORD_PRIORITY . ':' int_const   (rule 241)
+
+    ':' 	shift, and go to state 341
+
+
+
+state 147
+
+    edge_attribute  ->  LEXWORD_SOURCENAME . ':' str_const   (rule 232)
+
+    ':' 	shift, and go to state 342
+
+
+
+state 148
+
+    edge_attribute  ->  LEXWORD_TARGETNAME . ':' str_const   (rule 233)
+
+    ':' 	shift, and go to state 343
+
+
+
+state 149
+
+    edge_attribute  ->  LEXWORD_THICKNESS . ':' int_const   (rule 239)
+
+    ':' 	shift, and go to state 344
+
+
+
+state 150
+
+    edge_attribute  ->  LEXWORD_TYPENAME . ':' str_const   (rule 238)
+
+    ':' 	shift, and go to state 345
+
+
+
+state 151
+
+    edge_defaults  ->  LEXWORD_EDGE1 edge_attribute .   (rule 178)
+
+    $default	reduce using rule 178 (edge_defaults)
+
+
+
+state 152
+
+    edge  ->  LEXWORD_EDGE2 '{' . edge_attribute_list '}'   (rule 182)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+
+    edge_attribute_list	go to state 346
+    edge_attribute	go to state 262
+
+
+
+state 153
+
+    graph_attribute  ->  LEXWORD_EDGES ':' . enum_yes_no   (rule 83)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 347
+
+
+
+state 154
+
+    graph_attribute  ->  LEXWORD_FINETUNING ':' . enum_yes_no   (rule 64)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 348
+
+
+
+state 155
+
+    foldedge_defaults  ->  LEXWORD_FOLDEDGE edge_attribute .   (rule 176)
+
+    $default	reduce using rule 176 (foldedge_defaults)
+
+
+
+state 156
+
+    node_attribute  ->  LEXWORD_ANCHORPOINTS . ':' str_const   (rule 201)
+
+    ':' 	shift, and go to state 349
+
+
+
+state 157
+
+    node_attribute  ->  LEXWORD_BORDERCOLOR . ':' enum_color   (rule 199)
+
+    ':' 	shift, and go to state 350
+
+
+
+state 158
+
+    node_attribute  ->  LEXWORD_BORDERWIDTH . ':' int_const   (rule 205)
+
+    ':' 	shift, and go to state 351
+
+
+
+state 159
+
+    node_attribute  ->  LEXWORD_COLOR . ':' enum_color   (rule 197)
+
+    ':' 	shift, and go to state 352
+
+
+
+state 160
+
+    node_attribute  ->  LEXWORD_FOLDING . ':' int_const   (rule 207)
+
+    ':' 	shift, and go to state 353
+
+
+
+state 161
+
+    node_attribute  ->  LEXWORD_FONTNAME . ':' str_const   (rule 196)
+
+    ':' 	shift, and go to state 354
+
+
+
+state 162
+
+    node_attribute  ->  LEXWORD_HEIGHT . ':' int_const   (rule 204)
+
+    ':' 	shift, and go to state 355
+
+
+
+state 163
+
+    node_attribute  ->  LEXWORD_HORDER . ':' int_const   (rule 218)
+
+    ':' 	shift, and go to state 356
+
+
+
+state 164
+
+    node_attribute  ->  LEXWORD_ICONFILE . ':' str_const   (rule 200)
+
+    ':' 	shift, and go to state 357
+
+
+
+state 165
+
+    node_attribute  ->  LEXWORD_ICONHEIGHT . ':' int_const   (rule 212)
+
+    ':' 	shift, and go to state 358
+
+
+
+state 166
+
+    node_attribute  ->  LEXWORD_ICONSTYLE . ':' enum_iconstyle   (rule 214)
+
+    ':' 	shift, and go to state 359
+
+
+
+state 167
+
+    node_attribute  ->  LEXWORD_ICONWIDTH . ':' int_const   (rule 211)
+
+    ':' 	shift, and go to state 360
+
+
+
+state 168
+
+    node_attribute  ->  LEXWORD_INFO1 . ':' str_const   (rule 193)
+
+    ':' 	shift, and go to state 361
+
+
+
+state 169
+
+    node_attribute  ->  LEXWORD_INFO2 . ':' str_const   (rule 194)
+
+    ':' 	shift, and go to state 362
+
+
+
+state 170
+
+    node_attribute  ->  LEXWORD_INFO3 . ':' str_const   (rule 195)
+
+    ':' 	shift, and go to state 363
+
+
+
+state 171
+
+    node_attribute  ->  LEXWORD_TEXTCOLOR . ':' enum_color   (rule 198)
+
+    ':' 	shift, and go to state 364
+
+
+
+state 172
+
+    node_attribute  ->  LEXWORD_LABEL . ':' str_const   (rule 192)
+
+    ':' 	shift, and go to state 365
+
+
+
+state 173
+
+    node_attribute  ->  LEXWORD_LEVEL . ':' int_const   (rule 216)
+
+    ':' 	shift, and go to state 366
+
+
+
+state 174
+
+    node_attribute  ->  LEXWORD_VORDER . ':' int_const   (rule 217)
+
+    ':' 	shift, and go to state 367
+
+
+
+state 175
+
+    node_attribute  ->  LEXWORD_LOC . '{' 'x' ':' int_const 'y' ':' int_const '}'   (rule 206)
+
+    '{' 	shift, and go to state 368
+
+
+
+state 176
+
+    node_attribute  ->  LEXWORD_SCALING . ':' float_const   (rule 208)
+
+    ':' 	shift, and go to state 369
+
+
+
+state 177
+
+    node_attribute  ->  LEXWORD_SHAPE . ':' enum_shape   (rule 215)
+
+    ':' 	shift, and go to state 370
+
+
+
+state 178
+
+    node_attribute  ->  LEXWORD_SHRINK . ':' int_const   (rule 209)
+
+    ':' 	shift, and go to state 371
+
+
+
+state 179
+
+    node_attribute  ->  LEXWORD_STRETCH . ':' int_const   (rule 210)
+
+    ':' 	shift, and go to state 372
+
+
+
+state 180
+
+    node_attribute  ->  LEXWORD_TEXTMODE . ':' enum_textmode   (rule 213)
+
+    ':' 	shift, and go to state 373
+
+
+
+state 181
+
+    node_attribute  ->  LEXWORD_TITLE . ':' str_const   (rule 191)
+
+    ':' 	shift, and go to state 374
+
+
+
+state 182
+
+    node_attribute  ->  LEXWORD_TYPENAME . ':' str_const   (rule 202)
+
+    ':' 	shift, and go to state 375
+
+
+
+state 183
+
+    node_attribute  ->  LEXWORD_WIDTH . ':' int_const   (rule 203)
+
+    ':' 	shift, and go to state 376
+
+
+
+state 184
+
+    foldnode_defaults  ->  LEXWORD_FOLDNODE node_attribute .   (rule 175)
+
+    $default	reduce using rule 175 (foldnode_defaults)
+
+
+
+state 185
+
+    graph_attribute  ->  LEXWORD_FOLDING ':' . int_const   (rule 30)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 377
+
+
+
+state 186
+
+    graph_attribute  ->  LEXWORD_HEIGHT ':' . int_const   (rule 25)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 378
+
+
+
+state 187
+
+    graph_attribute  ->  LEXWORD_HIDESINGLES ':' . enum_yes_no   (rule 65)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 379
+
+
+
+state 188
+
+    graph_attribute  ->  LEXWORD_HIDDEN ':' . int_const   (rule 51)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 380
+
+
+
+state 189
+
+    graph_attribute  ->  LEXWORD_HORDER ':' . int_const   (rule 38)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 381
+
+
+
+state 190
+
+    graph_attribute  ->  LEXWORD_INCLUDE ':' . str_const   (rule 95)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 383
+
+
+
+state 191
+
+    graph_attribute  ->  LEXWORD_INFONAME int_const . ':' str_const   (rule 53)
+
+    ':' 	shift, and go to state 384
+
+
+
+state 192
+
+    graph_attribute  ->  LEXWORD_INFO1 ':' . str_const   (rule 18)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 385
+
+
+
+state 193
+
+    graph_attribute  ->  LEXWORD_INFO2 ':' . str_const   (rule 19)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 386
+
+
+
+state 194
+
+    graph_attribute  ->  LEXWORD_INFO3 ':' . str_const   (rule 20)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 387
+
+
+
+state 195
+
+    graph_attribute  ->  LEXWORD_INPUTFUNCTION ':' . str_const   (rule 98)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 388
+
+
+
+state 196
+
+    graph_attribute  ->  LEXWORD_INVISIBLE ':' . int_const   (rule 50)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 389
+
+
+
+state 197
+
+    graph_attribute  ->  LEXWORD_TEXTCOLOR ':' . enum_color   (rule 22)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 390
+    int_const	go to state 297
+
+
+
+state 198
+
+    graph_attribute  ->  LEXWORD_LABEL ':' . str_const   (rule 17)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 391
+
+
+
+state 199
+
+    graph_attribute  ->  LEXWORD_LATE_LABELS ':' . enum_yes_no   (rule 61)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 392
+
+
+
+state 200
+
+    graph_attribute  ->  LEXWORD_LAYOUTALGORITHM ':' . enum_layoutalgorithm   (rule 55)
+
+    LEXWORD_BARYCENTER	shift, and go to state 393
+    LEXWORD_CONSTRAINTS	shift, and go to state 394
+    LEXWORD_DFS	shift, and go to state 395
+    LEXWORD_ISI	shift, and go to state 396
+    LEXWORD_MAXDEPTHSLOW	shift, and go to state 397
+    LEXWORD_MAXDEPTH	shift, and go to state 398
+    LEXWORD_MAXDEGREE	shift, and go to state 399
+    LEXWORD_MAXINDEGREE	shift, and go to state 400
+    LEXWORD_MAXOUTDEGREE	shift, and go to state 401
+    LEXWORD_MINDEPTHSLOW	shift, and go to state 402
+    LEXWORD_MINDEPTH	shift, and go to state 403
+    LEXWORD_MINDEGREE	shift, and go to state 404
+    LEXWORD_MININDEGREE	shift, and go to state 405
+    LEXWORD_MINOUTDEGREE	shift, and go to state 406
+    LEXWORD_MINBACK	shift, and go to state 407
+    LEXWORD_PLANAR	shift, and go to state 408
+    LEXWORD_TREE	shift, and go to state 409
+
+    enum_layoutalgorithm	go to state 410
+
+
+
+state 201
+
+    graph_attribute  ->  LEXWORD_LAYOUTFREQUENCY ':' . enum_layoutfrequency   (rule 56)
+
+    LEXWORD_EVERY	shift, and go to state 411
+    LEXWORD_MANUAL	shift, and go to state 412
+
+    enum_layoutfrequency	go to state 413
+
+
+
+state 202
+
+    graph_attribute  ->  LEXWORD_LAYOUTPARAMETER ':' . array_value   (rule 96)
+
+    '{' 	shift, and go to state 414
+
+    array_value	go to state 415
+
+
+
+state 203
+
+    graph_attribute  ->  LEXWORD_LAYOUTDOWNFACTOR ':' . int_const   (rule 57)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 416
+
+
+
+state 204
+
+    graph_attribute  ->  LEXWORD_LAYOUTUPFACTOR ':' . int_const   (rule 58)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 417
+
+
+
+state 205
+
+    graph_attribute  ->  LEXWORD_LAYOUTNEARFACTOR ':' . int_const   (rule 59)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 418
+
+
+
+state 206
+
+    graph_attribute  ->  LEXWORD_LAYOUTSPLINEFACTOR ':' . int_const   (rule 60)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 419
+
+
+
+state 207
+
+    graph_attribute  ->  LEXWORD_LEVEL ':' . int_const   (rule 36)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 420
+
+
+
+state 208
+
+    graph_attribute  ->  LEXWORD_VORDER ':' . int_const   (rule 37)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 421
+
+
+
+state 209
+
+    graph_attribute  ->  LEXWORD_LOC '{' . 'x' ':' int_const 'y' ':' int_const '}'   (rule 29)
+
+    'x' 	shift, and go to state 422
+
+
+
+state 210
+
+    graph_attribute  ->  LEXWORD_MANHATTEN ':' . enum_yes_no   (rule 68)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 423
+
+
+
+state 211
+
+    nearedge  ->  LEXWORD_NEAREDGE '{' . edge_attribute_list '}'   (rule 183)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+
+    edge_attribute_list	go to state 424
+    edge_attribute	go to state 262
+
+
+
+state 212
+
+    graph_attribute  ->  LEXWORD_NEAREDGES ':' . LEXWORD_NO   (rule 71)
+    graph_attribute  ->  LEXWORD_NEAREDGES ':' . LEXWORD_YES   (rule 72)
+
+    LEXWORD_NO	shift, and go to state 425
+    LEXWORD_YES	shift, and go to state 426
+
+
+
+state 213
+
+    node_defaults  ->  LEXWORD_NODE1 node_attribute .   (rule 177)
+
+    $default	reduce using rule 177 (node_defaults)
+
+
+
+state 214
+
+    node  ->  LEXWORD_NODE2 '{' . node_attribute_list '}'   (rule 179)
+
+    LEXWORD_ANCHORPOINTS	shift, and go to state 156
+    LEXWORD_BORDERCOLOR	shift, and go to state 157
+    LEXWORD_BORDERWIDTH	shift, and go to state 158
+    LEXWORD_COLOR	shift, and go to state 159
+    LEXWORD_FOLDING	shift, and go to state 160
+    LEXWORD_FONTNAME	shift, and go to state 161
+    LEXWORD_HEIGHT	shift, and go to state 162
+    LEXWORD_HORDER	shift, and go to state 163
+    LEXWORD_ICONFILE	shift, and go to state 164
+    LEXWORD_ICONHEIGHT	shift, and go to state 165
+    LEXWORD_ICONSTYLE	shift, and go to state 166
+    LEXWORD_ICONWIDTH	shift, and go to state 167
+    LEXWORD_INFO1	shift, and go to state 168
+    LEXWORD_INFO2	shift, and go to state 169
+    LEXWORD_INFO3	shift, and go to state 170
+    LEXWORD_TEXTCOLOR	shift, and go to state 171
+    LEXWORD_LABEL	shift, and go to state 172
+    LEXWORD_LEVEL	shift, and go to state 173
+    LEXWORD_VORDER	shift, and go to state 174
+    LEXWORD_LOC	shift, and go to state 175
+    LEXWORD_SCALING	shift, and go to state 176
+    LEXWORD_SHAPE	shift, and go to state 177
+    LEXWORD_SHRINK	shift, and go to state 178
+    LEXWORD_STRETCH	shift, and go to state 179
+    LEXWORD_TEXTMODE	shift, and go to state 180
+    LEXWORD_TITLE	shift, and go to state 181
+    LEXWORD_TYPENAME	shift, and go to state 182
+    LEXWORD_WIDTH	shift, and go to state 183
+
+    node_attribute_list	go to state 427
+    node_attribute	go to state 428
+
+
+
+state 215
+
+    graph_attribute  ->  LEXWORD_NODES ':' . enum_yes_no   (rule 84)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 429
+
+
+
+state 216
+
+    graph_attribute  ->  LEXWORD_NODE_ALIGN ':' . enum_node_align   (rule 74)
+
+    LEXWORD_BOTTOM	shift, and go to state 430
+    LEXWORD_CENTER	shift, and go to state 431
+    LEXWORD_TOP	shift, and go to state 432
+
+    enum_node_align	go to state 433
+
+
+
+state 217
+
+    graph_attribute  ->  LEXWORD_ORIENTATION ':' . enum_orientation   (rule 73)
+
+    LEXWORD_BOTTOM_TO_TOP	shift, and go to state 434
+    LEXWORD_LEFT_TO_RIGHT	shift, and go to state 435
+    LEXWORD_RIGHT_TO_LEFT	shift, and go to state 436
+    LEXWORD_TOP_TO_BOTTOM	shift, and go to state 437
+
+    enum_orientation	go to state 438
+
+
+
+state 218
+
+    graph_attribute  ->  LEXWORD_OUTPUTFUNCTION ':' . str_const   (rule 99)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 439
+
+
+
+state 219
+
+    graph_attribute  ->  LEXWORD_PMIN ':' . int_const   (rule 90)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 440
+
+
+
+state 220
+
+    graph_attribute  ->  LEXWORD_PMAX ':' . int_const   (rule 89)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 441
+
+
+
+state 221
+
+    graph_attribute  ->  LEXWORD_PORTSHARING ':' . enum_yes_no   (rule 75)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 442
+
+
+
+state 222
+
+    graph_attribute  ->  LEXWORD_PRIORITYPHASE ':' . enum_yes_no   (rule 67)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 443
+
+
+
+state 223
+
+    graph_attribute  ->  LEXWORD_RMIN ':' . int_const   (rule 92)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 444
+
+
+
+state 224
+
+    graph_attribute  ->  LEXWORD_RMAX ':' . int_const   (rule 91)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 445
+
+
+
+state 225
+
+    graph_attribute  ->  LEXWORD_SCALING ':' . float_const   (rule 31)
+
+    LEX_FLOAT	shift, and go to state 446
+
+    float_const	go to state 447
+
+
+
+state 226
+
+    graph_attribute  ->  LEXWORD_SHAPE ':' . enum_shape   (rule 35)
+
+    LEXWORD_BOX	shift, and go to state 448
+    LEXWORD_ELLIPSE	shift, and go to state 449
+    LEXWORD_RHOMB	shift, and go to state 450
+    LEXWORD_TRIANGLE	shift, and go to state 451
+
+    enum_shape	go to state 452
+
+
+
+state 227
+
+    graph_attribute  ->  LEXWORD_SHRINK ':' . int_const   (rule 32)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 453
+
+
+
+state 228
+
+    graph_attribute  ->  LEXWORD_SMAX ':' . int_const   (rule 93)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 454
+
+
+
+state 229
+
+    graph_attribute  ->  LEXWORD_SMANHATTEN ':' . enum_yes_no   (rule 69)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 455
+
+
+
+state 230
+
+    graph_attribute  ->  LEXWORD_SPLINES ':' . enum_yes_no   (rule 85)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 456
+
+
+
+state 231
+
+    graph_attribute  ->  LEXWORD_SPREADLEVEL ':' . int_const   (rule 77)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 457
+
+
+
+state 232
+
+    graph_attribute  ->  LEXWORD_STATUS ':' . enum_status   (rule 39)
+
+    LEXWORD_BLACK	shift, and go to state 458
+    LEXWORD_GREY	shift, and go to state 459
+    LEXWORD_WHITE	shift, and go to state 460
+
+    enum_status	go to state 461
+
+
+
+state 233
+
+    graph_attribute  ->  LEXWORD_STRETCH ':' . int_const   (rule 33)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 462
+
+
+
+state 234
+
+    graph_attribute  ->  LEXWORD_STRAIGHTPHASE ':' . enum_yes_no   (rule 66)
+
+    LEXWORD_NO	shift, and go to state 319
+    LEXWORD_YES	shift, and go to state 320
+
+    enum_yes_no	go to state 463
+
+
+
+state 235
+
+    graph_attribute  ->  LEXWORD_TEXTMODE ':' . enum_textmode   (rule 34)
+
+    LEXWORD_CENTER	shift, and go to state 464
+    LEXWORD_LEFT_JUSTIFY	shift, and go to state 465
+    LEXWORD_RIGHT_JUSTIFY	shift, and go to state 466
+
+    enum_textmode	go to state 467
+
+
+
+state 236
+
+    graph_attribute  ->  LEXWORD_TITLE ':' . str_const   (rule 16)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 468
+
+
+
+state 237
+
+    graph_attribute  ->  LEXWORD_TOPSORT ':' . enum_topsort   (rule 97)
+
+    LEXWORD_HIGH	shift, and go to state 469
+    LEXWORD_LOW	shift, and go to state 470
+
+    enum_topsort	go to state 471
+
+
+
+state 238
+
+    graph_attribute  ->  LEXWORD_TREEFACTOR ':' . float_const   (rule 78)
+
+    LEX_FLOAT	shift, and go to state 446
+
+    float_const	go to state 472
+
+
+
+state 239
+
+    graph_attribute  ->  LEXWORD_TYPENAME ':' . str_const   (rule 94)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 473
+
+
+
+state 240
+
+    graph_attribute  ->  LEXWORD_VIEW ':' . enum_view   (rule 82)
+
+    LEXWORD_CFISH	shift, and go to state 474
+    LEXWORD_FCFISH	shift, and go to state 475
+    LEXWORD_FPFISH	shift, and go to state 476
+    LEXWORD_PFISH	shift, and go to state 477
+
+    enum_view	go to state 478
+
+
+
+state 241
+
+    graph_attribute  ->  LEXWORD_WIDTH ':' . int_const   (rule 24)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 479
+
+
+
+state 242
+
+    graph_attribute  ->  LEXWORD_XBASE ':' . int_const   (rule 42)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 480
+
+
+
+state 243
+
+    graph_attribute  ->  LEXWORD_XMAX ':' . int_const   (rule 40)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 481
+
+
+
+state 244
+
+    graph_attribute  ->  LEXWORD_XRASTER ':' . int_const   (rule 47)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 482
+
+
+
+state 245
+
+    graph_attribute  ->  LEXWORD_XLRASTER ':' . int_const   (rule 48)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 483
+
+
+
+state 246
+
+    graph_attribute  ->  LEXWORD_XSCROLLBAR ':' . int_const   (rule 100)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 484
+
+
+
+state 247
+
+    graph_attribute  ->  LEXWORD_XSPACE ':' . int_const   (rule 44)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 485
+
+
+
+state 248
+
+    graph_attribute  ->  LEXWORD_XLSPACE ':' . int_const   (rule 45)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 486
+
+
+
+state 249
+
+    graph_attribute  ->  LEXWORD_YBASE ':' . int_const   (rule 43)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 487
+
+
+
+state 250
+
+    graph_attribute  ->  LEXWORD_YMAX ':' . int_const   (rule 41)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 488
+
+
+
+state 251
+
+    graph_attribute  ->  LEXWORD_YRASTER ':' . int_const   (rule 49)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 489
+
+
+
+state 252
+
+    graph_attribute  ->  LEXWORD_YSCROLLBAR ':' . int_const   (rule 101)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 490
+
+
+
+state 253
+
+    graph_attribute  ->  LEXWORD_YSPACE ':' . int_const   (rule 46)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 491
+
+
+
+state 254
+
+    graph_attribute  ->  'x' ':' . int_const   (rule 27)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 492
+
+
+
+state 255
+
+    graph_attribute  ->  'y' ':' . int_const   (rule 28)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 493
+
+
+
+state 256
+
+    graph  ->  LEXWORD_GRAPH '{' graph_entry_list '}' .   (rule 1)
+
+    $default	reduce using rule 1 (graph)
+
+
+
+state 257
+
+    graph_entry_list  ->  graph_entry_list graph_entry .   (rule 2)
+
+    $default	reduce using rule 2 (graph_entry_list)
+
+
+
+state 258
+
+    enum_arrow_mode  ->  LEXWORD_FIXED .   (rule 173)
+
+    $default	reduce using rule 173 (enum_arrow_mode)
+
+
+
+state 259
+
+    enum_arrow_mode  ->  LEXWORD_FREE .   (rule 174)
+
+    $default	reduce using rule 174 (enum_arrow_mode)
+
+
+
+state 260
+
+    graph_attribute  ->  LEXWORD_ARROWMODE ':' enum_arrow_mode .   (rule 76)
+
+    $default	reduce using rule 76 (graph_attribute)
+
+
+
+state 261
+
+    backedge  ->  LEXWORD_BACKEDGE '{' edge_attribute_list . '}'   (rule 185)
+    edge_attribute_list  ->  edge_attribute_list . edge_attribute   (rule 186)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+    '}' 	shift, and go to state 494
+
+    edge_attribute	go to state 495
+
+
+
+state 262
+
+    edge_attribute_list  ->  edge_attribute .   (rule 187)
+
+    $default	reduce using rule 187 (edge_attribute_list)
+
+
+
+state 263
+
+    graph_attribute  ->  LEXWORD_BMAX ':' int_const .   (rule 86)
+
+    $default	reduce using rule 86 (graph_attribute)
+
+
+
+state 264
+
+    enum_color  ->  LEXWORD_AQUAMARINE .   (rule 102)
+
+    $default	reduce using rule 102 (enum_color)
+
+
+
+state 265
+
+    enum_color  ->  LEXWORD_BLACK .   (rule 103)
+
+    $default	reduce using rule 103 (enum_color)
+
+
+
+state 266
+
+    enum_color  ->  LEXWORD_BLUE .   (rule 104)
+
+    $default	reduce using rule 104 (enum_color)
+
+
+
+state 267
+
+    enum_color  ->  LEXWORD_CYAN .   (rule 105)
+
+    $default	reduce using rule 105 (enum_color)
+
+
+
+state 268
+
+    enum_color  ->  LEXWORD_DARKBLUE .   (rule 106)
+
+    $default	reduce using rule 106 (enum_color)
+
+
+
+state 269
+
+    enum_color  ->  LEXWORD_DARKCYAN .   (rule 107)
+
+    $default	reduce using rule 107 (enum_color)
+
+
+
+state 270
+
+    enum_color  ->  LEXWORD_DARKGREEN .   (rule 108)
+
+    $default	reduce using rule 108 (enum_color)
+
+
+
+state 271
+
+    enum_color  ->  LEXWORD_DARKGREY .   (rule 109)
+
+    $default	reduce using rule 109 (enum_color)
+
+
+
+state 272
+
+    enum_color  ->  LEXWORD_DARKMAGENTA .   (rule 110)
+
+    $default	reduce using rule 110 (enum_color)
+
+
+
+state 273
+
+    enum_color  ->  LEXWORD_DARKRED .   (rule 111)
+
+    $default	reduce using rule 111 (enum_color)
+
+
+
+state 274
+
+    enum_color  ->  LEXWORD_DARKYELLOW .   (rule 112)
+
+    $default	reduce using rule 112 (enum_color)
+
+
+
+state 275
+
+    enum_color  ->  LEXWORD_GOLD .   (rule 113)
+
+    $default	reduce using rule 113 (enum_color)
+
+
+
+state 276
+
+    enum_color  ->  LEXWORD_GREEN .   (rule 114)
+
+    $default	reduce using rule 114 (enum_color)
+
+
+
+state 277
+
+    enum_color  ->  LEXWORD_KHAKI .   (rule 115)
+
+    $default	reduce using rule 115 (enum_color)
+
+
+
+state 278
+
+    enum_color  ->  LEXWORD_LIGHTBLUE .   (rule 116)
+
+    $default	reduce using rule 116 (enum_color)
+
+
+
+state 279
+
+    enum_color  ->  LEXWORD_LIGHTCYAN .   (rule 117)
+
+    $default	reduce using rule 117 (enum_color)
+
+
+
+state 280
+
+    enum_color  ->  LEXWORD_LIGHTGREEN .   (rule 118)
+
+    $default	reduce using rule 118 (enum_color)
+
+
+
+state 281
+
+    enum_color  ->  LEXWORD_LIGHTGREY .   (rule 119)
+
+    $default	reduce using rule 119 (enum_color)
+
+
+
+state 282
+
+    enum_color  ->  LEXWORD_LIGHTMAGENTA .   (rule 120)
+
+    $default	reduce using rule 120 (enum_color)
+
+
+
+state 283
+
+    enum_color  ->  LEXWORD_LIGHTRED .   (rule 121)
+
+    $default	reduce using rule 121 (enum_color)
+
+
+
+state 284
+
+    enum_color  ->  LEXWORD_LIGHTYELLOW .   (rule 122)
+
+    $default	reduce using rule 122 (enum_color)
+
+
+
+state 285
+
+    enum_color  ->  LEXWORD_LILAC .   (rule 123)
+
+    $default	reduce using rule 123 (enum_color)
+
+
+
+state 286
+
+    enum_color  ->  LEXWORD_MAGENTA .   (rule 124)
+
+    $default	reduce using rule 124 (enum_color)
+
+
+
+state 287
+
+    enum_color  ->  LEXWORD_ORANGE .   (rule 125)
+
+    $default	reduce using rule 125 (enum_color)
+
+
+
+state 288
+
+    enum_color  ->  LEXWORD_ORCHID .   (rule 126)
+
+    $default	reduce using rule 126 (enum_color)
+
+
+
+state 289
+
+    enum_color  ->  LEXWORD_PINK .   (rule 127)
+
+    $default	reduce using rule 127 (enum_color)
+
+
+
+state 290
+
+    enum_color  ->  LEXWORD_PURPLE .   (rule 128)
+
+    $default	reduce using rule 128 (enum_color)
+
+
+
+state 291
+
+    enum_color  ->  LEXWORD_RED .   (rule 129)
+
+    $default	reduce using rule 129 (enum_color)
+
+
+
+state 292
+
+    enum_color  ->  LEXWORD_TURQUOISE .   (rule 130)
+
+    $default	reduce using rule 130 (enum_color)
+
+
+
+state 293
+
+    enum_color  ->  LEXWORD_WHITE .   (rule 131)
+
+    $default	reduce using rule 131 (enum_color)
+
+
+
+state 294
+
+    enum_color  ->  LEXWORD_YELLOWGREEN .   (rule 133)
+
+    $default	reduce using rule 133 (enum_color)
+
+
+
+state 295
+
+    enum_color  ->  LEXWORD_YELLOW .   (rule 132)
+
+    $default	reduce using rule 132 (enum_color)
+
+
+
+state 296
+
+    graph_attribute  ->  LEXWORD_BORDERCOLOR ':' enum_color .   (rule 23)
+
+    $default	reduce using rule 23 (graph_attribute)
+
+
+
+state 297
+
+    enum_color  ->  int_const .   (rule 134)
+
+    $default	reduce using rule 134 (enum_color)
+
+
+
+state 298
+
+    graph_attribute  ->  LEXWORD_BORDERWIDTH ':' int_const .   (rule 26)
+
+    $default	reduce using rule 26 (graph_attribute)
+
+
+
+state 299
+
+    bentnearedge  ->  LEXWORD_BENTNEAREDGE '{' edge_attribute_list . '}'   (rule 184)
+    edge_attribute_list  ->  edge_attribute_list . edge_attribute   (rule 186)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+    '}' 	shift, and go to state 496
+
+    edge_attribute	go to state 495
+
+
+
+state 300
+
+    graph_attribute  ->  LEXWORD_CLASSNAME int_const ':' . str_const   (rule 52)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 497
+
+
+
+state 301
+
+    graph_attribute  ->  LEXWORD_CMIN ':' int_const .   (rule 88)
+
+    $default	reduce using rule 88 (graph_attribute)
+
+
+
+state 302
+
+    graph_attribute  ->  LEXWORD_CMAX ':' int_const .   (rule 87)
+
+    $default	reduce using rule 87 (graph_attribute)
+
+
+
+state 303
+
+    graph_attribute  ->  LEXWORD_COLORENTRY int_const ':' . int_const int_const int_const   (rule 54)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 498
+
+
+
+state 304
+
+    graph_attribute  ->  LEXWORD_COLOR ':' enum_color .   (rule 21)
+
+    $default	reduce using rule 21 (graph_attribute)
+
+
+
+state 305
+
+    constraint_attribute  ->  LEXWORD_DIMENSION . ':' enum_dimension   (rule 267)
+
+    ':' 	shift, and go to state 499
+
+
+
+state 306
+
+    constraint_attribute  ->  LEXWORD_INTERVAL . ':' array_value   (rule 265)
+
+    ':' 	shift, and go to state 500
+
+
+
+state 307
+
+    constraint_attribute  ->  LEXWORD_NAME . ':' enum_name   (rule 266)
+
+    ':' 	shift, and go to state 501
+
+
+
+state 308
+
+    constraint_attribute  ->  LEXWORD_NODES . ':' '{' string_array '}'   (rule 264)
+
+    ':' 	shift, and go to state 502
+
+
+
+state 309
+
+    constraint_attribute  ->  LEXWORD_PRIORITY . ':' int_const   (rule 262)
+
+    ':' 	shift, and go to state 503
+
+
+
+state 310
+
+    constraint_attribute  ->  LEXWORD_SIZE . ':' int_const   (rule 263)
+
+    ':' 	shift, and go to state 504
+
+
+
+state 311
+
+    constraint_attribute  ->  LEXWORD_TITLE . ':' str_const   (rule 261)
+
+    ':' 	shift, and go to state 505
+
+
+
+state 312
+
+    constraint  ->  LEXWORD_CONSTRAINT '{' constraint_attribute_list . '}'   (rule 188)
+    constraint_attribute_list  ->  constraint_attribute_list . constraint_attribute   (rule 189)
+
+    LEXWORD_DIMENSION	shift, and go to state 305
+    LEXWORD_INTERVAL	shift, and go to state 306
+    LEXWORD_NAME	shift, and go to state 307
+    LEXWORD_NODES	shift, and go to state 308
+    LEXWORD_PRIORITY	shift, and go to state 309
+    LEXWORD_SIZE	shift, and go to state 310
+    LEXWORD_TITLE	shift, and go to state 311
+    '}' 	shift, and go to state 506
+
+    constraint_attribute	go to state 507
+
+
+
+state 313
+
+    constraint_attribute_list  ->  constraint_attribute .   (rule 190)
+
+    $default	reduce using rule 190 (constraint_attribute_list)
+
+
+
+state 314
+
+    enum_cross_weight  ->  LEXWORD_BARY .   (rule 165)
+
+    $default	reduce using rule 165 (enum_cross_weight)
+
+
+
+state 315
+
+    enum_cross_weight  ->  LEXWORD_BARYMEDIAN .   (rule 167)
+
+    $default	reduce using rule 167 (enum_cross_weight)
+
+
+
+state 316
+
+    enum_cross_weight  ->  LEXWORD_MEDIAN .   (rule 166)
+
+    $default	reduce using rule 166 (enum_cross_weight)
+
+
+
+state 317
+
+    enum_cross_weight  ->  LEXWORD_MEDIANBARY .   (rule 168)
+
+    $default	reduce using rule 168 (enum_cross_weight)
+
+
+
+state 318
+
+    graph_attribute  ->  LEXWORD_CROSSING_WEIGHT ':' enum_cross_weight .   (rule 81)
+
+    $default	reduce using rule 81 (graph_attribute)
+
+
+
+state 319
+
+    enum_yes_no  ->  LEXWORD_NO .   (rule 164)
+
+    $default	reduce using rule 164 (enum_yes_no)
+
+
+
+state 320
+
+    enum_yes_no  ->  LEXWORD_YES .   (rule 163)
+
+    $default	reduce using rule 163 (enum_yes_no)
+
+
+
+state 321
+
+    graph_attribute  ->  LEXWORD_CROSSING_OPT ':' enum_yes_no .   (rule 80)
+
+    $default	reduce using rule 80 (graph_attribute)
+
+
+
+state 322
+
+    graph_attribute  ->  LEXWORD_CROSSING_P2 ':' enum_yes_no .   (rule 79)
+
+    $default	reduce using rule 79 (graph_attribute)
+
+
+
+state 323
+
+    graph_attribute  ->  LEXWORD_DIRTY_EDGE_LABELS ':' enum_yes_no .   (rule 63)
+
+    $default	reduce using rule 63 (graph_attribute)
+
+
+
+state 324
+
+    graph_attribute  ->  LEXWORD_DISPLAY_EDGE_LABELS ':' enum_yes_no .   (rule 62)
+
+    $default	reduce using rule 62 (graph_attribute)
+
+
+
+state 325
+
+    edge_attribute  ->  LEXWORD_ANCHOR ':' . int_const   (rule 251)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 508
+
+
+
+state 326
+
+    edge_attribute  ->  LEXWORD_ARROWHEIGHT ':' . int_const   (rule 243)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 509
+
+
+
+state 327
+
+    edge_attribute  ->  LEXWORD_ARROWWIDTH ':' . int_const   (rule 242)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 510
+
+
+
+state 328
+
+    edge_attribute  ->  LEXWORD_ARROWCOLOR ':' . enum_color   (rule 244)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 511
+    int_const	go to state 297
+
+
+
+state 329
+
+    edge_attribute  ->  LEXWORD_ARROWSTYLE ':' . enum_arrowstyle   (rule 248)
+
+    LEXWORD_LINE	shift, and go to state 512
+    LEXWORD_NONE	shift, and go to state 513
+    LEXWORD_SOLID	shift, and go to state 514
+
+    enum_arrowstyle	go to state 515
+
+
+
+state 330
+
+    edge_attribute  ->  LEXWORD_ARROWSIZE ':' . int_const   (rule 246)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 516
+
+
+
+state 331
+
+    edge_attribute  ->  LEXWORD_BARROWCOLOR ':' . enum_color   (rule 245)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 517
+    int_const	go to state 297
+
+
+
+state 332
+
+    edge_attribute  ->  LEXWORD_BARROWSTYLE ':' . enum_arrowstyle   (rule 249)
+
+    LEXWORD_LINE	shift, and go to state 512
+    LEXWORD_NONE	shift, and go to state 513
+    LEXWORD_SOLID	shift, and go to state 514
+
+    enum_arrowstyle	go to state 518
+
+
+
+state 333
+
+    edge_attribute  ->  LEXWORD_BARROWSIZE ':' . int_const   (rule 247)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 519
+
+
+
+state 334
+
+    edge_attribute  ->  LEXWORD_CLASS ':' . int_const   (rule 240)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 520
+
+
+
+state 335
+
+    edge_attribute  ->  LEXWORD_COLOR ':' . enum_color   (rule 237)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 521
+    int_const	go to state 297
+
+
+
+state 336
+
+    edge_attribute  ->  LEXWORD_FONTNAME ':' . str_const   (rule 236)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 522
+
+
+
+state 337
+
+    edge_attribute  ->  LEXWORD_HORDER ':' . int_const   (rule 252)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 523
+
+
+
+state 338
+
+    edge_attribute  ->  LEXWORD_TEXTCOLOR ':' . enum_color   (rule 235)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 524
+    int_const	go to state 297
+
+
+
+state 339
+
+    edge_attribute  ->  LEXWORD_LABEL ':' . str_const   (rule 234)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 525
+
+
+
+state 340
+
+    edge_attribute  ->  LEXWORD_LINESTYLE ':' . enum_linestyle   (rule 250)
+
+    LEXWORD_CONTINUOUS	shift, and go to state 526
+    LEXWORD_DASHED	shift, and go to state 527
+    LEXWORD_DOTTED	shift, and go to state 528
+    LEXWORD_INVISIBLE	shift, and go to state 529
+    LEXWORD_SOLID	shift, and go to state 530
+
+    enum_linestyle	go to state 531
+
+
+
+state 341
+
+    edge_attribute  ->  LEXWORD_PRIORITY ':' . int_const   (rule 241)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 532
+
+
+
+state 342
+
+    edge_attribute  ->  LEXWORD_SOURCENAME ':' . str_const   (rule 232)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 533
+
+
+
+state 343
+
+    edge_attribute  ->  LEXWORD_TARGETNAME ':' . str_const   (rule 233)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 534
+
+
+
+state 344
+
+    edge_attribute  ->  LEXWORD_THICKNESS ':' . int_const   (rule 239)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 535
+
+
+
+state 345
+
+    edge_attribute  ->  LEXWORD_TYPENAME ':' . str_const   (rule 238)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 536
+
+
+
+state 346
+
+    edge  ->  LEXWORD_EDGE2 '{' edge_attribute_list . '}'   (rule 182)
+    edge_attribute_list  ->  edge_attribute_list . edge_attribute   (rule 186)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+    '}' 	shift, and go to state 537
+
+    edge_attribute	go to state 495
+
+
+
+state 347
+
+    graph_attribute  ->  LEXWORD_EDGES ':' enum_yes_no .   (rule 83)
+
+    $default	reduce using rule 83 (graph_attribute)
+
+
+
+state 348
+
+    graph_attribute  ->  LEXWORD_FINETUNING ':' enum_yes_no .   (rule 64)
+
+    $default	reduce using rule 64 (graph_attribute)
+
+
+
+state 349
+
+    node_attribute  ->  LEXWORD_ANCHORPOINTS ':' . str_const   (rule 201)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 538
+
+
+
+state 350
+
+    node_attribute  ->  LEXWORD_BORDERCOLOR ':' . enum_color   (rule 199)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 539
+    int_const	go to state 297
+
+
+
+state 351
+
+    node_attribute  ->  LEXWORD_BORDERWIDTH ':' . int_const   (rule 205)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 540
+
+
+
+state 352
+
+    node_attribute  ->  LEXWORD_COLOR ':' . enum_color   (rule 197)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 541
+    int_const	go to state 297
+
+
+
+state 353
+
+    node_attribute  ->  LEXWORD_FOLDING ':' . int_const   (rule 207)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 542
+
+
+
+state 354
+
+    node_attribute  ->  LEXWORD_FONTNAME ':' . str_const   (rule 196)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 543
+
+
+
+state 355
+
+    node_attribute  ->  LEXWORD_HEIGHT ':' . int_const   (rule 204)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 544
+
+
+
+state 356
+
+    node_attribute  ->  LEXWORD_HORDER ':' . int_const   (rule 218)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 545
+
+
+
+state 357
+
+    node_attribute  ->  LEXWORD_ICONFILE ':' . str_const   (rule 200)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 546
+
+
+
+state 358
+
+    node_attribute  ->  LEXWORD_ICONHEIGHT ':' . int_const   (rule 212)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 547
+
+
+
+state 359
+
+    node_attribute  ->  LEXWORD_ICONSTYLE ':' . enum_iconstyle   (rule 214)
+
+    LEXWORD_AROUND	shift, and go to state 548
+    LEXWORD_BOTTOM	shift, and go to state 549
+    LEXWORD_TOP	shift, and go to state 550
+
+    enum_iconstyle	go to state 551
+
+
+
+state 360
+
+    node_attribute  ->  LEXWORD_ICONWIDTH ':' . int_const   (rule 211)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 552
+
+
+
+state 361
+
+    node_attribute  ->  LEXWORD_INFO1 ':' . str_const   (rule 193)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 553
+
+
+
+state 362
+
+    node_attribute  ->  LEXWORD_INFO2 ':' . str_const   (rule 194)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 554
+
+
+
+state 363
+
+    node_attribute  ->  LEXWORD_INFO3 ':' . str_const   (rule 195)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 555
+
+
+
+state 364
+
+    node_attribute  ->  LEXWORD_TEXTCOLOR ':' . enum_color   (rule 198)
+
+    LEXWORD_AQUAMARINE	shift, and go to state 264
+    LEXWORD_BLACK	shift, and go to state 265
+    LEXWORD_BLUE	shift, and go to state 266
+    LEXWORD_CYAN	shift, and go to state 267
+    LEXWORD_DARKBLUE	shift, and go to state 268
+    LEXWORD_DARKCYAN	shift, and go to state 269
+    LEXWORD_DARKGREEN	shift, and go to state 270
+    LEXWORD_DARKGREY	shift, and go to state 271
+    LEXWORD_DARKMAGENTA	shift, and go to state 272
+    LEXWORD_DARKRED	shift, and go to state 273
+    LEXWORD_DARKYELLOW	shift, and go to state 274
+    LEXWORD_GOLD	shift, and go to state 275
+    LEXWORD_GREEN	shift, and go to state 276
+    LEXWORD_KHAKI	shift, and go to state 277
+    LEXWORD_LIGHTBLUE	shift, and go to state 278
+    LEXWORD_LIGHTCYAN	shift, and go to state 279
+    LEXWORD_LIGHTGREEN	shift, and go to state 280
+    LEXWORD_LIGHTGREY	shift, and go to state 281
+    LEXWORD_LIGHTMAGENTA	shift, and go to state 282
+    LEXWORD_LIGHTRED	shift, and go to state 283
+    LEXWORD_LIGHTYELLOW	shift, and go to state 284
+    LEXWORD_LILAC	shift, and go to state 285
+    LEXWORD_MAGENTA	shift, and go to state 286
+    LEXWORD_ORANGE	shift, and go to state 287
+    LEXWORD_ORCHID	shift, and go to state 288
+    LEXWORD_PINK	shift, and go to state 289
+    LEXWORD_PURPLE	shift, and go to state 290
+    LEXWORD_RED	shift, and go to state 291
+    LEXWORD_TURQUOISE	shift, and go to state 292
+    LEXWORD_WHITE	shift, and go to state 293
+    LEXWORD_YELLOWGREEN	shift, and go to state 294
+    LEXWORD_YELLOW	shift, and go to state 295
+    LEX_INT	shift, and go to state 118
+
+    enum_color	go to state 556
+    int_const	go to state 297
+
+
+
+state 365
+
+    node_attribute  ->  LEXWORD_LABEL ':' . str_const   (rule 192)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 557
+
+
+
+state 366
+
+    node_attribute  ->  LEXWORD_LEVEL ':' . int_const   (rule 216)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 558
+
+
+
+state 367
+
+    node_attribute  ->  LEXWORD_VORDER ':' . int_const   (rule 217)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 559
+
+
+
+state 368
+
+    node_attribute  ->  LEXWORD_LOC '{' . 'x' ':' int_const 'y' ':' int_const '}'   (rule 206)
+
+    'x' 	shift, and go to state 560
+
+
+
+state 369
+
+    node_attribute  ->  LEXWORD_SCALING ':' . float_const   (rule 208)
+
+    LEX_FLOAT	shift, and go to state 446
+
+    float_const	go to state 561
+
+
+
+state 370
+
+    node_attribute  ->  LEXWORD_SHAPE ':' . enum_shape   (rule 215)
+
+    LEXWORD_BOX	shift, and go to state 448
+    LEXWORD_ELLIPSE	shift, and go to state 449
+    LEXWORD_RHOMB	shift, and go to state 450
+    LEXWORD_TRIANGLE	shift, and go to state 451
+
+    enum_shape	go to state 562
+
+
+
+state 371
+
+    node_attribute  ->  LEXWORD_SHRINK ':' . int_const   (rule 209)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 563
+
+
+
+state 372
+
+    node_attribute  ->  LEXWORD_STRETCH ':' . int_const   (rule 210)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 564
+
+
+
+state 373
+
+    node_attribute  ->  LEXWORD_TEXTMODE ':' . enum_textmode   (rule 213)
+
+    LEXWORD_CENTER	shift, and go to state 464
+    LEXWORD_LEFT_JUSTIFY	shift, and go to state 465
+    LEXWORD_RIGHT_JUSTIFY	shift, and go to state 466
+
+    enum_textmode	go to state 565
+
+
+
+state 374
+
+    node_attribute  ->  LEXWORD_TITLE ':' . str_const   (rule 191)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 566
+
+
+
+state 375
+
+    node_attribute  ->  LEXWORD_TYPENAME ':' . str_const   (rule 202)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 567
+
+
+
+state 376
+
+    node_attribute  ->  LEXWORD_WIDTH ':' . int_const   (rule 203)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 568
+
+
+
+state 377
+
+    graph_attribute  ->  LEXWORD_FOLDING ':' int_const .   (rule 30)
+
+    $default	reduce using rule 30 (graph_attribute)
+
+
+
+state 378
+
+    graph_attribute  ->  LEXWORD_HEIGHT ':' int_const .   (rule 25)
+
+    $default	reduce using rule 25 (graph_attribute)
+
+
+
+state 379
+
+    graph_attribute  ->  LEXWORD_HIDESINGLES ':' enum_yes_no .   (rule 65)
+
+    $default	reduce using rule 65 (graph_attribute)
+
+
+
+state 380
+
+    graph_attribute  ->  LEXWORD_HIDDEN ':' int_const .   (rule 51)
+
+    $default	reduce using rule 51 (graph_attribute)
+
+
+
+state 381
+
+    graph_attribute  ->  LEXWORD_HORDER ':' int_const .   (rule 38)
+
+    $default	reduce using rule 38 (graph_attribute)
+
+
+
+state 382
+
+    str_const  ->  LEX_STRING .   (rule 315)
+
+    $default	reduce using rule 315 (str_const)
+
+
+
+state 383
+
+    graph_attribute  ->  LEXWORD_INCLUDE ':' str_const .   (rule 95)
+
+    $default	reduce using rule 95 (graph_attribute)
+
+
+
+state 384
+
+    graph_attribute  ->  LEXWORD_INFONAME int_const ':' . str_const   (rule 53)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 569
+
+
+
+state 385
+
+    graph_attribute  ->  LEXWORD_INFO1 ':' str_const .   (rule 18)
+
+    $default	reduce using rule 18 (graph_attribute)
+
+
+
+state 386
+
+    graph_attribute  ->  LEXWORD_INFO2 ':' str_const .   (rule 19)
+
+    $default	reduce using rule 19 (graph_attribute)
+
+
+
+state 387
+
+    graph_attribute  ->  LEXWORD_INFO3 ':' str_const .   (rule 20)
+
+    $default	reduce using rule 20 (graph_attribute)
+
+
+
+state 388
+
+    graph_attribute  ->  LEXWORD_INPUTFUNCTION ':' str_const .   (rule 98)
+
+    $default	reduce using rule 98 (graph_attribute)
+
+
+
+state 389
+
+    graph_attribute  ->  LEXWORD_INVISIBLE ':' int_const .   (rule 50)
+
+    $default	reduce using rule 50 (graph_attribute)
+
+
+
+state 390
+
+    graph_attribute  ->  LEXWORD_TEXTCOLOR ':' enum_color .   (rule 22)
+
+    $default	reduce using rule 22 (graph_attribute)
+
+
+
+state 391
+
+    graph_attribute  ->  LEXWORD_LABEL ':' str_const .   (rule 17)
+
+    $default	reduce using rule 17 (graph_attribute)
+
+
+
+state 392
+
+    graph_attribute  ->  LEXWORD_LATE_LABELS ':' enum_yes_no .   (rule 61)
+
+    $default	reduce using rule 61 (graph_attribute)
+
+
+
+state 393
+
+    enum_layoutalgorithm  ->  LEXWORD_BARYCENTER .   (rule 141)
+
+    $default	reduce using rule 141 (enum_layoutalgorithm)
+
+
+
+state 394
+
+    enum_layoutalgorithm  ->  LEXWORD_CONSTRAINTS .   (rule 144)
+
+    $default	reduce using rule 144 (enum_layoutalgorithm)
+
+
+
+state 395
+
+    enum_layoutalgorithm  ->  LEXWORD_DFS .   (rule 157)
+
+    $default	reduce using rule 157 (enum_layoutalgorithm)
+
+
+
+state 396
+
+    enum_layoutalgorithm  ->  LEXWORD_ISI .   (rule 142)
+
+    $default	reduce using rule 142 (enum_layoutalgorithm)
+
+
+
+state 397
+
+    enum_layoutalgorithm  ->  LEXWORD_MAXDEPTHSLOW .   (rule 148)
+
+    $default	reduce using rule 148 (enum_layoutalgorithm)
+
+
+
+state 398
+
+    enum_layoutalgorithm  ->  LEXWORD_MAXDEPTH .   (rule 146)
+
+    $default	reduce using rule 146 (enum_layoutalgorithm)
+
+
+
+state 399
+
+    enum_layoutalgorithm  ->  LEXWORD_MAXDEGREE .   (rule 150)
+
+    $default	reduce using rule 150 (enum_layoutalgorithm)
+
+
+
+state 400
+
+    enum_layoutalgorithm  ->  LEXWORD_MAXINDEGREE .   (rule 152)
+
+    $default	reduce using rule 152 (enum_layoutalgorithm)
+
+
+
+state 401
+
+    enum_layoutalgorithm  ->  LEXWORD_MAXOUTDEGREE .   (rule 154)
+
+    $default	reduce using rule 154 (enum_layoutalgorithm)
+
+
+
+state 402
+
+    enum_layoutalgorithm  ->  LEXWORD_MINDEPTHSLOW .   (rule 149)
+
+    $default	reduce using rule 149 (enum_layoutalgorithm)
+
+
+
+state 403
+
+    enum_layoutalgorithm  ->  LEXWORD_MINDEPTH .   (rule 147)
+
+    $default	reduce using rule 147 (enum_layoutalgorithm)
+
+
+
+state 404
+
+    enum_layoutalgorithm  ->  LEXWORD_MINDEGREE .   (rule 151)
+
+    $default	reduce using rule 151 (enum_layoutalgorithm)
+
+
+
+state 405
+
+    enum_layoutalgorithm  ->  LEXWORD_MININDEGREE .   (rule 153)
+
+    $default	reduce using rule 153 (enum_layoutalgorithm)
+
+
+
+state 406
+
+    enum_layoutalgorithm  ->  LEXWORD_MINOUTDEGREE .   (rule 155)
+
+    $default	reduce using rule 155 (enum_layoutalgorithm)
+
+
+
+state 407
+
+    enum_layoutalgorithm  ->  LEXWORD_MINBACK .   (rule 156)
+
+    $default	reduce using rule 156 (enum_layoutalgorithm)
+
+
+
+state 408
+
+    enum_layoutalgorithm  ->  LEXWORD_PLANAR .   (rule 143)
+
+    $default	reduce using rule 143 (enum_layoutalgorithm)
+
+
+
+state 409
+
+    enum_layoutalgorithm  ->  LEXWORD_TREE .   (rule 145)
+
+    $default	reduce using rule 145 (enum_layoutalgorithm)
+
+
+
+state 410
+
+    graph_attribute  ->  LEXWORD_LAYOUTALGORITHM ':' enum_layoutalgorithm .   (rule 55)
+
+    $default	reduce using rule 55 (graph_attribute)
+
+
+
+state 411
+
+    enum_layoutfrequency  ->  LEXWORD_EVERY .   (rule 158)
+
+    $default	reduce using rule 158 (enum_layoutfrequency)
+
+
+
+state 412
+
+    enum_layoutfrequency  ->  LEXWORD_MANUAL .   (rule 159)
+
+    $default	reduce using rule 159 (enum_layoutfrequency)
+
+
+
+state 413
+
+    graph_attribute  ->  LEXWORD_LAYOUTFREQUENCY ':' enum_layoutfrequency .   (rule 56)
+
+    $default	reduce using rule 56 (graph_attribute)
+
+
+
+state 414
+
+    array_value  ->  '{' . index_value_list '}'   (rule 304)
+
+    LEX_INT	shift, and go to state 570
+    LEX_FLOAT	shift, and go to state 571
+    LEX_CHAR	shift, and go to state 572
+    LEX_STRING	shift, and go to state 573
+    '{' 	shift, and go to state 414
+    '*' 	shift, and go to state 574
+    '[' 	shift, and go to state 575
+
+    attribute_value	go to state 576
+    array_value	go to state 577
+    index_value_list	go to state 578
+    index_value	go to state 579
+    range	go to state 580
+    index	go to state 581
+
+
+
+state 415
+
+    graph_attribute  ->  LEXWORD_LAYOUTPARAMETER ':' array_value .   (rule 96)
+
+    $default	reduce using rule 96 (graph_attribute)
+
+
+
+state 416
+
+    graph_attribute  ->  LEXWORD_LAYOUTDOWNFACTOR ':' int_const .   (rule 57)
+
+    $default	reduce using rule 57 (graph_attribute)
+
+
+
+state 417
+
+    graph_attribute  ->  LEXWORD_LAYOUTUPFACTOR ':' int_const .   (rule 58)
+
+    $default	reduce using rule 58 (graph_attribute)
+
+
+
+state 418
+
+    graph_attribute  ->  LEXWORD_LAYOUTNEARFACTOR ':' int_const .   (rule 59)
+
+    $default	reduce using rule 59 (graph_attribute)
+
+
+
+state 419
+
+    graph_attribute  ->  LEXWORD_LAYOUTSPLINEFACTOR ':' int_const .   (rule 60)
+
+    $default	reduce using rule 60 (graph_attribute)
+
+
+
+state 420
+
+    graph_attribute  ->  LEXWORD_LEVEL ':' int_const .   (rule 36)
+
+    $default	reduce using rule 36 (graph_attribute)
+
+
+
+state 421
+
+    graph_attribute  ->  LEXWORD_VORDER ':' int_const .   (rule 37)
+
+    $default	reduce using rule 37 (graph_attribute)
+
+
+
+state 422
+
+    graph_attribute  ->  LEXWORD_LOC '{' 'x' . ':' int_const 'y' ':' int_const '}'   (rule 29)
+
+    ':' 	shift, and go to state 582
+
+
+
+state 423
+
+    graph_attribute  ->  LEXWORD_MANHATTEN ':' enum_yes_no .   (rule 68)
+
+    $default	reduce using rule 68 (graph_attribute)
+
+
+
+state 424
+
+    nearedge  ->  LEXWORD_NEAREDGE '{' edge_attribute_list . '}'   (rule 183)
+    edge_attribute_list  ->  edge_attribute_list . edge_attribute   (rule 186)
+
+    LEXWORD_ANCHOR	shift, and go to state 130
+    LEXWORD_ARROWHEIGHT	shift, and go to state 131
+    LEXWORD_ARROWWIDTH	shift, and go to state 132
+    LEXWORD_ARROWCOLOR	shift, and go to state 133
+    LEXWORD_ARROWSTYLE	shift, and go to state 134
+    LEXWORD_ARROWSIZE	shift, and go to state 135
+    LEXWORD_BARROWCOLOR	shift, and go to state 136
+    LEXWORD_BARROWSTYLE	shift, and go to state 137
+    LEXWORD_BARROWSIZE	shift, and go to state 138
+    LEXWORD_CLASS	shift, and go to state 139
+    LEXWORD_COLOR	shift, and go to state 140
+    LEXWORD_FONTNAME	shift, and go to state 141
+    LEXWORD_HORDER	shift, and go to state 142
+    LEXWORD_TEXTCOLOR	shift, and go to state 143
+    LEXWORD_LABEL	shift, and go to state 144
+    LEXWORD_LINESTYLE	shift, and go to state 145
+    LEXWORD_PRIORITY	shift, and go to state 146
+    LEXWORD_SOURCENAME	shift, and go to state 147
+    LEXWORD_TARGETNAME	shift, and go to state 148
+    LEXWORD_THICKNESS	shift, and go to state 149
+    LEXWORD_TYPENAME	shift, and go to state 150
+    '}' 	shift, and go to state 583
+
+    edge_attribute	go to state 495
+
+
+
+state 425
+
+    graph_attribute  ->  LEXWORD_NEAREDGES ':' LEXWORD_NO .   (rule 71)
+
+    $default	reduce using rule 71 (graph_attribute)
+
+
+
+state 426
+
+    graph_attribute  ->  LEXWORD_NEAREDGES ':' LEXWORD_YES .   (rule 72)
+
+    $default	reduce using rule 72 (graph_attribute)
+
+
+
+state 427
+
+    node  ->  LEXWORD_NODE2 '{' node_attribute_list . '}'   (rule 179)
+    node_attribute_list  ->  node_attribute_list . node_attribute   (rule 180)
+
+    LEXWORD_ANCHORPOINTS	shift, and go to state 156
+    LEXWORD_BORDERCOLOR	shift, and go to state 157
+    LEXWORD_BORDERWIDTH	shift, and go to state 158
+    LEXWORD_COLOR	shift, and go to state 159
+    LEXWORD_FOLDING	shift, and go to state 160
+    LEXWORD_FONTNAME	shift, and go to state 161
+    LEXWORD_HEIGHT	shift, and go to state 162
+    LEXWORD_HORDER	shift, and go to state 163
+    LEXWORD_ICONFILE	shift, and go to state 164
+    LEXWORD_ICONHEIGHT	shift, and go to state 165
+    LEXWORD_ICONSTYLE	shift, and go to state 166
+    LEXWORD_ICONWIDTH	shift, and go to state 167
+    LEXWORD_INFO1	shift, and go to state 168
+    LEXWORD_INFO2	shift, and go to state 169
+    LEXWORD_INFO3	shift, and go to state 170
+    LEXWORD_TEXTCOLOR	shift, and go to state 171
+    LEXWORD_LABEL	shift, and go to state 172
+    LEXWORD_LEVEL	shift, and go to state 173
+    LEXWORD_VORDER	shift, and go to state 174
+    LEXWORD_LOC	shift, and go to state 175
+    LEXWORD_SCALING	shift, and go to state 176
+    LEXWORD_SHAPE	shift, and go to state 177
+    LEXWORD_SHRINK	shift, and go to state 178
+    LEXWORD_STRETCH	shift, and go to state 179
+    LEXWORD_TEXTMODE	shift, and go to state 180
+    LEXWORD_TITLE	shift, and go to state 181
+    LEXWORD_TYPENAME	shift, and go to state 182
+    LEXWORD_WIDTH	shift, and go to state 183
+    '}' 	shift, and go to state 584
+
+    node_attribute	go to state 585
+
+
+
+state 428
+
+    node_attribute_list  ->  node_attribute .   (rule 181)
+
+    $default	reduce using rule 181 (node_attribute_list)
+
+
+
+state 429
+
+    graph_attribute  ->  LEXWORD_NODES ':' enum_yes_no .   (rule 84)
+
+    $default	reduce using rule 84 (graph_attribute)
+
+
+
+state 430
+
+    enum_node_align  ->  LEXWORD_BOTTOM .   (rule 226)
+
+    $default	reduce using rule 226 (enum_node_align)
+
+
+
+state 431
+
+    enum_node_align  ->  LEXWORD_CENTER .   (rule 228)
+
+    $default	reduce using rule 228 (enum_node_align)
+
+
+
+state 432
+
+    enum_node_align  ->  LEXWORD_TOP .   (rule 227)
+
+    $default	reduce using rule 227 (enum_node_align)
+
+
+
+state 433
+
+    graph_attribute  ->  LEXWORD_NODE_ALIGN ':' enum_node_align .   (rule 74)
+
+    $default	reduce using rule 74 (graph_attribute)
+
+
+
+state 434
+
+    enum_orientation  ->  LEXWORD_BOTTOM_TO_TOP .   (rule 138)
+
+    $default	reduce using rule 138 (enum_orientation)
+
+
+
+state 435
+
+    enum_orientation  ->  LEXWORD_LEFT_TO_RIGHT .   (rule 139)
+
+    $default	reduce using rule 139 (enum_orientation)
+
+
+
+state 436
+
+    enum_orientation  ->  LEXWORD_RIGHT_TO_LEFT .   (rule 140)
+
+    $default	reduce using rule 140 (enum_orientation)
+
+
+
+state 437
+
+    enum_orientation  ->  LEXWORD_TOP_TO_BOTTOM .   (rule 137)
+
+    $default	reduce using rule 137 (enum_orientation)
+
+
+
+state 438
+
+    graph_attribute  ->  LEXWORD_ORIENTATION ':' enum_orientation .   (rule 73)
+
+    $default	reduce using rule 73 (graph_attribute)
+
+
+
+state 439
+
+    graph_attribute  ->  LEXWORD_OUTPUTFUNCTION ':' str_const .   (rule 99)
+
+    $default	reduce using rule 99 (graph_attribute)
+
+
+
+state 440
+
+    graph_attribute  ->  LEXWORD_PMIN ':' int_const .   (rule 90)
+
+    $default	reduce using rule 90 (graph_attribute)
+
+
+
+state 441
+
+    graph_attribute  ->  LEXWORD_PMAX ':' int_const .   (rule 89)
+
+    $default	reduce using rule 89 (graph_attribute)
+
+
+
+state 442
+
+    graph_attribute  ->  LEXWORD_PORTSHARING ':' enum_yes_no .   (rule 75)
+
+    $default	reduce using rule 75 (graph_attribute)
+
+
+
+state 443
+
+    graph_attribute  ->  LEXWORD_PRIORITYPHASE ':' enum_yes_no .   (rule 67)
+
+    $default	reduce using rule 67 (graph_attribute)
+
+
+
+state 444
+
+    graph_attribute  ->  LEXWORD_RMIN ':' int_const .   (rule 92)
+
+    $default	reduce using rule 92 (graph_attribute)
+
+
+
+state 445
+
+    graph_attribute  ->  LEXWORD_RMAX ':' int_const .   (rule 91)
+
+    $default	reduce using rule 91 (graph_attribute)
+
+
+
+state 446
+
+    float_const  ->  LEX_FLOAT .   (rule 314)
+
+    $default	reduce using rule 314 (float_const)
+
+
+
+state 447
+
+    graph_attribute  ->  LEXWORD_SCALING ':' float_const .   (rule 31)
+
+    $default	reduce using rule 31 (graph_attribute)
+
+
+
+state 448
+
+    enum_shape  ->  LEXWORD_BOX .   (rule 222)
+
+    $default	reduce using rule 222 (enum_shape)
+
+
+
+state 449
+
+    enum_shape  ->  LEXWORD_ELLIPSE .   (rule 224)
+
+    $default	reduce using rule 224 (enum_shape)
+
+
+
+state 450
+
+    enum_shape  ->  LEXWORD_RHOMB .   (rule 223)
+
+    $default	reduce using rule 223 (enum_shape)
+
+
+
+state 451
+
+    enum_shape  ->  LEXWORD_TRIANGLE .   (rule 225)
+
+    $default	reduce using rule 225 (enum_shape)
+
+
+
+state 452
+
+    graph_attribute  ->  LEXWORD_SHAPE ':' enum_shape .   (rule 35)
+
+    $default	reduce using rule 35 (graph_attribute)
+
+
+
+state 453
+
+    graph_attribute  ->  LEXWORD_SHRINK ':' int_const .   (rule 32)
+
+    $default	reduce using rule 32 (graph_attribute)
+
+
+
+state 454
+
+    graph_attribute  ->  LEXWORD_SMAX ':' int_const .   (rule 93)
+
+    $default	reduce using rule 93 (graph_attribute)
+
+
+
+state 455
+
+    graph_attribute  ->  LEXWORD_SMANHATTEN ':' enum_yes_no .   (rule 69)
+
+    $default	reduce using rule 69 (graph_attribute)
+
+
+
+state 456
+
+    graph_attribute  ->  LEXWORD_SPLINES ':' enum_yes_no .   (rule 85)
+
+    $default	reduce using rule 85 (graph_attribute)
+
+
+
+state 457
+
+    graph_attribute  ->  LEXWORD_SPREADLEVEL ':' int_const .   (rule 77)
+
+    $default	reduce using rule 77 (graph_attribute)
+
+
+
+state 458
+
+    enum_status  ->  LEXWORD_BLACK .   (rule 160)
+
+    $default	reduce using rule 160 (enum_status)
+
+
+
+state 459
+
+    enum_status  ->  LEXWORD_GREY .   (rule 161)
+
+    $default	reduce using rule 161 (enum_status)
+
+
+
+state 460
+
+    enum_status  ->  LEXWORD_WHITE .   (rule 162)
+
+    $default	reduce using rule 162 (enum_status)
+
+
+
+state 461
+
+    graph_attribute  ->  LEXWORD_STATUS ':' enum_status .   (rule 39)
+
+    $default	reduce using rule 39 (graph_attribute)
+
+
+
+state 462
+
+    graph_attribute  ->  LEXWORD_STRETCH ':' int_const .   (rule 33)
+
+    $default	reduce using rule 33 (graph_attribute)
+
+
+
+state 463
+
+    graph_attribute  ->  LEXWORD_STRAIGHTPHASE ':' enum_yes_no .   (rule 66)
+
+    $default	reduce using rule 66 (graph_attribute)
+
+
+
+state 464
+
+    enum_textmode  ->  LEXWORD_CENTER .   (rule 219)
+
+    $default	reduce using rule 219 (enum_textmode)
+
+
+
+state 465
+
+    enum_textmode  ->  LEXWORD_LEFT_JUSTIFY .   (rule 220)
+
+    $default	reduce using rule 220 (enum_textmode)
+
+
+
+state 466
+
+    enum_textmode  ->  LEXWORD_RIGHT_JUSTIFY .   (rule 221)
+
+    $default	reduce using rule 221 (enum_textmode)
+
+
+
+state 467
+
+    graph_attribute  ->  LEXWORD_TEXTMODE ':' enum_textmode .   (rule 34)
+
+    $default	reduce using rule 34 (graph_attribute)
+
+
+
+state 468
+
+    graph_attribute  ->  LEXWORD_TITLE ':' str_const .   (rule 16)
+
+    $default	reduce using rule 16 (graph_attribute)
+
+
+
+state 469
+
+    enum_topsort  ->  LEXWORD_HIGH .   (rule 135)
+
+    $default	reduce using rule 135 (enum_topsort)
+
+
+
+state 470
+
+    enum_topsort  ->  LEXWORD_LOW .   (rule 136)
+
+    $default	reduce using rule 136 (enum_topsort)
+
+
+
+state 471
+
+    graph_attribute  ->  LEXWORD_TOPSORT ':' enum_topsort .   (rule 97)
+
+    $default	reduce using rule 97 (graph_attribute)
+
+
+
+state 472
+
+    graph_attribute  ->  LEXWORD_TREEFACTOR ':' float_const .   (rule 78)
+
+    $default	reduce using rule 78 (graph_attribute)
+
+
+
+state 473
+
+    graph_attribute  ->  LEXWORD_TYPENAME ':' str_const .   (rule 94)
+
+    $default	reduce using rule 94 (graph_attribute)
+
+
+
+state 474
+
+    enum_view  ->  LEXWORD_CFISH .   (rule 169)
+
+    $default	reduce using rule 169 (enum_view)
+
+
+
+state 475
+
+    enum_view  ->  LEXWORD_FCFISH .   (rule 170)
+
+    $default	reduce using rule 170 (enum_view)
+
+
+
+state 476
+
+    enum_view  ->  LEXWORD_FPFISH .   (rule 172)
+
+    $default	reduce using rule 172 (enum_view)
+
+
+
+state 477
+
+    enum_view  ->  LEXWORD_PFISH .   (rule 171)
+
+    $default	reduce using rule 171 (enum_view)
+
+
+
+state 478
+
+    graph_attribute  ->  LEXWORD_VIEW ':' enum_view .   (rule 82)
+
+    $default	reduce using rule 82 (graph_attribute)
+
+
+
+state 479
+
+    graph_attribute  ->  LEXWORD_WIDTH ':' int_const .   (rule 24)
+
+    $default	reduce using rule 24 (graph_attribute)
+
+
+
+state 480
+
+    graph_attribute  ->  LEXWORD_XBASE ':' int_const .   (rule 42)
+
+    $default	reduce using rule 42 (graph_attribute)
+
+
+
+state 481
+
+    graph_attribute  ->  LEXWORD_XMAX ':' int_const .   (rule 40)
+
+    $default	reduce using rule 40 (graph_attribute)
+
+
+
+state 482
+
+    graph_attribute  ->  LEXWORD_XRASTER ':' int_const .   (rule 47)
+
+    $default	reduce using rule 47 (graph_attribute)
+
+
+
+state 483
+
+    graph_attribute  ->  LEXWORD_XLRASTER ':' int_const .   (rule 48)
+
+    $default	reduce using rule 48 (graph_attribute)
+
+
+
+state 484
+
+    graph_attribute  ->  LEXWORD_XSCROLLBAR ':' int_const .   (rule 100)
+
+    $default	reduce using rule 100 (graph_attribute)
+
+
+
+state 485
+
+    graph_attribute  ->  LEXWORD_XSPACE ':' int_const .   (rule 44)
+
+    $default	reduce using rule 44 (graph_attribute)
+
+
+
+state 486
+
+    graph_attribute  ->  LEXWORD_XLSPACE ':' int_const .   (rule 45)
+
+    $default	reduce using rule 45 (graph_attribute)
+
+
+
+state 487
+
+    graph_attribute  ->  LEXWORD_YBASE ':' int_const .   (rule 43)
+
+    $default	reduce using rule 43 (graph_attribute)
+
+
+
+state 488
+
+    graph_attribute  ->  LEXWORD_YMAX ':' int_const .   (rule 41)
+
+    $default	reduce using rule 41 (graph_attribute)
+
+
+
+state 489
+
+    graph_attribute  ->  LEXWORD_YRASTER ':' int_const .   (rule 49)
+
+    $default	reduce using rule 49 (graph_attribute)
+
+
+
+state 490
+
+    graph_attribute  ->  LEXWORD_YSCROLLBAR ':' int_const .   (rule 101)
+
+    $default	reduce using rule 101 (graph_attribute)
+
+
+
+state 491
+
+    graph_attribute  ->  LEXWORD_YSPACE ':' int_const .   (rule 46)
+
+    $default	reduce using rule 46 (graph_attribute)
+
+
+
+state 492
+
+    graph_attribute  ->  'x' ':' int_const .   (rule 27)
+
+    $default	reduce using rule 27 (graph_attribute)
+
+
+
+state 493
+
+    graph_attribute  ->  'y' ':' int_const .   (rule 28)
+
+    $default	reduce using rule 28 (graph_attribute)
+
+
+
+state 494
+
+    backedge  ->  LEXWORD_BACKEDGE '{' edge_attribute_list '}' .   (rule 185)
+
+    $default	reduce using rule 185 (backedge)
+
+
+
+state 495
+
+    edge_attribute_list  ->  edge_attribute_list edge_attribute .   (rule 186)
+
+    $default	reduce using rule 186 (edge_attribute_list)
+
+
+
+state 496
+
+    bentnearedge  ->  LEXWORD_BENTNEAREDGE '{' edge_attribute_list '}' .   (rule 184)
+
+    $default	reduce using rule 184 (bentnearedge)
+
+
+
+state 497
+
+    graph_attribute  ->  LEXWORD_CLASSNAME int_const ':' str_const .   (rule 52)
+
+    $default	reduce using rule 52 (graph_attribute)
+
+
+
+state 498
+
+    graph_attribute  ->  LEXWORD_COLORENTRY int_const ':' int_const . int_const int_const   (rule 54)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 586
+
+
+
+state 499
+
+    constraint_attribute  ->  LEXWORD_DIMENSION ':' . enum_dimension   (rule 267)
+
+    'x' 	shift, and go to state 587
+    'y' 	shift, and go to state 588
+    'z' 	shift, and go to state 589
+
+    enum_dimension	go to state 590
+
+
+
+state 500
+
+    constraint_attribute  ->  LEXWORD_INTERVAL ':' . array_value   (rule 265)
+
+    '{' 	shift, and go to state 414
+
+    array_value	go to state 591
+
+
+
+state 501
+
+    constraint_attribute  ->  LEXWORD_NAME ':' . enum_name   (rule 266)
+
+    LEXWORD_ABOVE	shift, and go to state 592
+    LEXWORD_BEHIND	shift, and go to state 593
+    LEXWORD_BELOW	shift, and go to state 594
+    LEXWORD_BOTTOM_MARGIN	shift, and go to state 595
+    LEXWORD_CLUSTER	shift, and go to state 596
+    LEXWORD_EQUAL_COLUMN	shift, and go to state 597
+    LEXWORD_EQUAL_POSITION	shift, and go to state 598
+    LEXWORD_EQUAL_ROW	shift, and go to state 599
+    LEXWORD_EQUAL	shift, and go to state 600
+    LEXWORD_GREATER	shift, and go to state 601
+    LEXWORD_HIGH_MARGIN	shift, and go to state 602
+    LEXWORD_IN_FRONT	shift, and go to state 603
+    LEXWORD_LEFT_MARGIN	shift, and go to state 604
+    LEXWORD_LEFT_NEIGHBOR	shift, and go to state 605
+    LEXWORD_LEFT	shift, and go to state 606
+    LEXWORD_LIMIT	shift, and go to state 607
+    LEXWORD_LOWER_NEIGHBOR	shift, and go to state 608
+    LEXWORD_LOW_MARGIN	shift, and go to state 609
+    LEXWORD_NEIGHBORS	shift, and go to state 610
+    LEXWORD_RANGE	shift, and go to state 611
+    LEXWORD_RIGHT_MARGIN	shift, and go to state 612
+    LEXWORD_RIGHT_NEIGHBOR	shift, and go to state 613
+    LEXWORD_RIGHT	shift, and go to state 614
+    LEXWORD_SMALLER	shift, and go to state 615
+    LEXWORD_TOP_MARGIN	shift, and go to state 616
+    LEXWORD_UPPER_NEIGHBOR	shift, and go to state 617
+
+    enum_name	go to state 618
+
+
+
+state 502
+
+    constraint_attribute  ->  LEXWORD_NODES ':' . '{' string_array '}'   (rule 264)
+
+    '{' 	shift, and go to state 619
+
+
+
+state 503
+
+    constraint_attribute  ->  LEXWORD_PRIORITY ':' . int_const   (rule 262)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 620
+
+
+
+state 504
+
+    constraint_attribute  ->  LEXWORD_SIZE ':' . int_const   (rule 263)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 621
+
+
+
+state 505
+
+    constraint_attribute  ->  LEXWORD_TITLE ':' . str_const   (rule 261)
+
+    LEX_STRING	shift, and go to state 382
+
+    str_const	go to state 622
+
+
+
+state 506
+
+    constraint  ->  LEXWORD_CONSTRAINT '{' constraint_attribute_list '}' .   (rule 188)
+
+    $default	reduce using rule 188 (constraint)
+
+
+
+state 507
+
+    constraint_attribute_list  ->  constraint_attribute_list constraint_attribute .   (rule 189)
+
+    $default	reduce using rule 189 (constraint_attribute_list)
+
+
+
+state 508
+
+    edge_attribute  ->  LEXWORD_ANCHOR ':' int_const .   (rule 251)
+
+    $default	reduce using rule 251 (edge_attribute)
+
+
+
+state 509
+
+    edge_attribute  ->  LEXWORD_ARROWHEIGHT ':' int_const .   (rule 243)
+
+    $default	reduce using rule 243 (edge_attribute)
+
+
+
+state 510
+
+    edge_attribute  ->  LEXWORD_ARROWWIDTH ':' int_const .   (rule 242)
+
+    $default	reduce using rule 242 (edge_attribute)
+
+
+
+state 511
+
+    edge_attribute  ->  LEXWORD_ARROWCOLOR ':' enum_color .   (rule 244)
+
+    $default	reduce using rule 244 (edge_attribute)
+
+
+
+state 512
+
+    enum_arrowstyle  ->  LEXWORD_LINE .   (rule 259)
+
+    $default	reduce using rule 259 (enum_arrowstyle)
+
+
+
+state 513
+
+    enum_arrowstyle  ->  LEXWORD_NONE .   (rule 258)
+
+    $default	reduce using rule 258 (enum_arrowstyle)
+
+
+
+state 514
+
+    enum_arrowstyle  ->  LEXWORD_SOLID .   (rule 260)
+
+    $default	reduce using rule 260 (enum_arrowstyle)
+
+
+
+state 515
+
+    edge_attribute  ->  LEXWORD_ARROWSTYLE ':' enum_arrowstyle .   (rule 248)
+
+    $default	reduce using rule 248 (edge_attribute)
+
+
+
+state 516
+
+    edge_attribute  ->  LEXWORD_ARROWSIZE ':' int_const .   (rule 246)
+
+    $default	reduce using rule 246 (edge_attribute)
+
+
+
+state 517
+
+    edge_attribute  ->  LEXWORD_BARROWCOLOR ':' enum_color .   (rule 245)
+
+    $default	reduce using rule 245 (edge_attribute)
+
+
+
+state 518
+
+    edge_attribute  ->  LEXWORD_BARROWSTYLE ':' enum_arrowstyle .   (rule 249)
+
+    $default	reduce using rule 249 (edge_attribute)
+
+
+
+state 519
+
+    edge_attribute  ->  LEXWORD_BARROWSIZE ':' int_const .   (rule 247)
+
+    $default	reduce using rule 247 (edge_attribute)
+
+
+
+state 520
+
+    edge_attribute  ->  LEXWORD_CLASS ':' int_const .   (rule 240)
+
+    $default	reduce using rule 240 (edge_attribute)
+
+
+
+state 521
+
+    edge_attribute  ->  LEXWORD_COLOR ':' enum_color .   (rule 237)
+
+    $default	reduce using rule 237 (edge_attribute)
+
+
+
+state 522
+
+    edge_attribute  ->  LEXWORD_FONTNAME ':' str_const .   (rule 236)
+
+    $default	reduce using rule 236 (edge_attribute)
+
+
+
+state 523
+
+    edge_attribute  ->  LEXWORD_HORDER ':' int_const .   (rule 252)
+
+    $default	reduce using rule 252 (edge_attribute)
+
+
+
+state 524
+
+    edge_attribute  ->  LEXWORD_TEXTCOLOR ':' enum_color .   (rule 235)
+
+    $default	reduce using rule 235 (edge_attribute)
+
+
+
+state 525
+
+    edge_attribute  ->  LEXWORD_LABEL ':' str_const .   (rule 234)
+
+    $default	reduce using rule 234 (edge_attribute)
+
+
+
+state 526
+
+    enum_linestyle  ->  LEXWORD_CONTINUOUS .   (rule 253)
+
+    $default	reduce using rule 253 (enum_linestyle)
+
+
+
+state 527
+
+    enum_linestyle  ->  LEXWORD_DASHED .   (rule 256)
+
+    $default	reduce using rule 256 (enum_linestyle)
+
+
+
+state 528
+
+    enum_linestyle  ->  LEXWORD_DOTTED .   (rule 255)
+
+    $default	reduce using rule 255 (enum_linestyle)
+
+
+
+state 529
+
+    enum_linestyle  ->  LEXWORD_INVISIBLE .   (rule 257)
+
+    $default	reduce using rule 257 (enum_linestyle)
+
+
+
+state 530
+
+    enum_linestyle  ->  LEXWORD_SOLID .   (rule 254)
+
+    $default	reduce using rule 254 (enum_linestyle)
+
+
+
+state 531
+
+    edge_attribute  ->  LEXWORD_LINESTYLE ':' enum_linestyle .   (rule 250)
+
+    $default	reduce using rule 250 (edge_attribute)
+
+
+
+state 532
+
+    edge_attribute  ->  LEXWORD_PRIORITY ':' int_const .   (rule 241)
+
+    $default	reduce using rule 241 (edge_attribute)
+
+
+
+state 533
+
+    edge_attribute  ->  LEXWORD_SOURCENAME ':' str_const .   (rule 232)
+
+    $default	reduce using rule 232 (edge_attribute)
+
+
+
+state 534
+
+    edge_attribute  ->  LEXWORD_TARGETNAME ':' str_const .   (rule 233)
+
+    $default	reduce using rule 233 (edge_attribute)
+
+
+
+state 535
+
+    edge_attribute  ->  LEXWORD_THICKNESS ':' int_const .   (rule 239)
+
+    $default	reduce using rule 239 (edge_attribute)
+
+
+
+state 536
+
+    edge_attribute  ->  LEXWORD_TYPENAME ':' str_const .   (rule 238)
+
+    $default	reduce using rule 238 (edge_attribute)
+
+
+
+state 537
+
+    edge  ->  LEXWORD_EDGE2 '{' edge_attribute_list '}' .   (rule 182)
+
+    $default	reduce using rule 182 (edge)
+
+
+
+state 538
+
+    node_attribute  ->  LEXWORD_ANCHORPOINTS ':' str_const .   (rule 201)
+
+    $default	reduce using rule 201 (node_attribute)
+
+
+
+state 539
+
+    node_attribute  ->  LEXWORD_BORDERCOLOR ':' enum_color .   (rule 199)
+
+    $default	reduce using rule 199 (node_attribute)
+
+
+
+state 540
+
+    node_attribute  ->  LEXWORD_BORDERWIDTH ':' int_const .   (rule 205)
+
+    $default	reduce using rule 205 (node_attribute)
+
+
+
+state 541
+
+    node_attribute  ->  LEXWORD_COLOR ':' enum_color .   (rule 197)
+
+    $default	reduce using rule 197 (node_attribute)
+
+
+
+state 542
+
+    node_attribute  ->  LEXWORD_FOLDING ':' int_const .   (rule 207)
+
+    $default	reduce using rule 207 (node_attribute)
+
+
+
+state 543
+
+    node_attribute  ->  LEXWORD_FONTNAME ':' str_const .   (rule 196)
+
+    $default	reduce using rule 196 (node_attribute)
+
+
+
+state 544
+
+    node_attribute  ->  LEXWORD_HEIGHT ':' int_const .   (rule 204)
+
+    $default	reduce using rule 204 (node_attribute)
+
+
+
+state 545
+
+    node_attribute  ->  LEXWORD_HORDER ':' int_const .   (rule 218)
+
+    $default	reduce using rule 218 (node_attribute)
+
+
+
+state 546
+
+    node_attribute  ->  LEXWORD_ICONFILE ':' str_const .   (rule 200)
+
+    $default	reduce using rule 200 (node_attribute)
+
+
+
+state 547
+
+    node_attribute  ->  LEXWORD_ICONHEIGHT ':' int_const .   (rule 212)
+
+    $default	reduce using rule 212 (node_attribute)
+
+
+
+state 548
+
+    enum_iconstyle  ->  LEXWORD_AROUND .   (rule 231)
+
+    $default	reduce using rule 231 (enum_iconstyle)
+
+
+
+state 549
+
+    enum_iconstyle  ->  LEXWORD_BOTTOM .   (rule 229)
+
+    $default	reduce using rule 229 (enum_iconstyle)
+
+
+
+state 550
+
+    enum_iconstyle  ->  LEXWORD_TOP .   (rule 230)
+
+    $default	reduce using rule 230 (enum_iconstyle)
+
+
+
+state 551
+
+    node_attribute  ->  LEXWORD_ICONSTYLE ':' enum_iconstyle .   (rule 214)
+
+    $default	reduce using rule 214 (node_attribute)
+
+
+
+state 552
+
+    node_attribute  ->  LEXWORD_ICONWIDTH ':' int_const .   (rule 211)
+
+    $default	reduce using rule 211 (node_attribute)
+
+
+
+state 553
+
+    node_attribute  ->  LEXWORD_INFO1 ':' str_const .   (rule 193)
+
+    $default	reduce using rule 193 (node_attribute)
+
+
+
+state 554
+
+    node_attribute  ->  LEXWORD_INFO2 ':' str_const .   (rule 194)
+
+    $default	reduce using rule 194 (node_attribute)
+
+
+
+state 555
+
+    node_attribute  ->  LEXWORD_INFO3 ':' str_const .   (rule 195)
+
+    $default	reduce using rule 195 (node_attribute)
+
+
+
+state 556
+
+    node_attribute  ->  LEXWORD_TEXTCOLOR ':' enum_color .   (rule 198)
+
+    $default	reduce using rule 198 (node_attribute)
+
+
+
+state 557
+
+    node_attribute  ->  LEXWORD_LABEL ':' str_const .   (rule 192)
+
+    $default	reduce using rule 192 (node_attribute)
+
+
+
+state 558
+
+    node_attribute  ->  LEXWORD_LEVEL ':' int_const .   (rule 216)
+
+    $default	reduce using rule 216 (node_attribute)
+
+
+
+state 559
+
+    node_attribute  ->  LEXWORD_VORDER ':' int_const .   (rule 217)
+
+    $default	reduce using rule 217 (node_attribute)
+
+
+
+state 560
+
+    node_attribute  ->  LEXWORD_LOC '{' 'x' . ':' int_const 'y' ':' int_const '}'   (rule 206)
+
+    ':' 	shift, and go to state 623
+
+
+
+state 561
+
+    node_attribute  ->  LEXWORD_SCALING ':' float_const .   (rule 208)
+
+    $default	reduce using rule 208 (node_attribute)
+
+
+
+state 562
+
+    node_attribute  ->  LEXWORD_SHAPE ':' enum_shape .   (rule 215)
+
+    $default	reduce using rule 215 (node_attribute)
+
+
+
+state 563
+
+    node_attribute  ->  LEXWORD_SHRINK ':' int_const .   (rule 209)
+
+    $default	reduce using rule 209 (node_attribute)
+
+
+
+state 564
+
+    node_attribute  ->  LEXWORD_STRETCH ':' int_const .   (rule 210)
+
+    $default	reduce using rule 210 (node_attribute)
+
+
+
+state 565
+
+    node_attribute  ->  LEXWORD_TEXTMODE ':' enum_textmode .   (rule 213)
+
+    $default	reduce using rule 213 (node_attribute)
+
+
+
+state 566
+
+    node_attribute  ->  LEXWORD_TITLE ':' str_const .   (rule 191)
+
+    $default	reduce using rule 191 (node_attribute)
+
+
+
+state 567
+
+    node_attribute  ->  LEXWORD_TYPENAME ':' str_const .   (rule 202)
+
+    $default	reduce using rule 202 (node_attribute)
+
+
+
+state 568
+
+    node_attribute  ->  LEXWORD_WIDTH ':' int_const .   (rule 203)
+
+    $default	reduce using rule 203 (node_attribute)
+
+
+
+state 569
+
+    graph_attribute  ->  LEXWORD_INFONAME int_const ':' str_const .   (rule 53)
+
+    $default	reduce using rule 53 (graph_attribute)
+
+
+
+state 570
+
+    attribute_value  ->  LEX_INT .   (rule 299)
+    index  ->  LEX_INT .   (rule 312)
+
+    ':' 	reduce using rule 312 (index)
+    $default	reduce using rule 299 (attribute_value)
+
+
+
+state 571
+
+    attribute_value  ->  LEX_FLOAT .   (rule 300)
+
+    $default	reduce using rule 300 (attribute_value)
+
+
+
+state 572
+
+    attribute_value  ->  LEX_CHAR .   (rule 301)
+
+    $default	reduce using rule 301 (attribute_value)
+
+
+
+state 573
+
+    attribute_value  ->  LEX_STRING .   (rule 302)
+
+    $default	reduce using rule 302 (attribute_value)
+
+
+
+state 574
+
+    index_value  ->  '*' . ':' attribute_value   (rule 310)
+
+    ':' 	shift, and go to state 624
+
+
+
+state 575
+
+    range  ->  '[' . int_const '-' int_const ']'   (rule 311)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 625
+
+
+
+state 576
+
+    index_value  ->  attribute_value .   (rule 307)
+
+    $default	reduce using rule 307 (index_value)
+
+
+
+state 577
+
+    attribute_value  ->  array_value .   (rule 303)
+
+    $default	reduce using rule 303 (attribute_value)
+
+
+
+state 578
+
+    array_value  ->  '{' index_value_list . '}'   (rule 304)
+    index_value_list  ->  index_value_list . index_value   (rule 305)
+
+    LEX_INT	shift, and go to state 570
+    LEX_FLOAT	shift, and go to state 571
+    LEX_CHAR	shift, and go to state 572
+    LEX_STRING	shift, and go to state 573
+    '{' 	shift, and go to state 414
+    '}' 	shift, and go to state 626
+    '*' 	shift, and go to state 574
+    '[' 	shift, and go to state 575
+
+    attribute_value	go to state 576
+    array_value	go to state 577
+    index_value	go to state 627
+    range	go to state 580
+    index	go to state 581
+
+
+
+state 579
+
+    index_value_list  ->  index_value .   (rule 306)
+
+    $default	reduce using rule 306 (index_value_list)
+
+
+
+state 580
+
+    index_value  ->  range . ':' attribute_value   (rule 309)
+
+    ':' 	shift, and go to state 628
+
+
+
+state 581
+
+    index_value  ->  index . ':' attribute_value   (rule 308)
+
+    ':' 	shift, and go to state 629
+
+
+
+state 582
+
+    graph_attribute  ->  LEXWORD_LOC '{' 'x' ':' . int_const 'y' ':' int_const '}'   (rule 29)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 630
+
+
+
+state 583
+
+    nearedge  ->  LEXWORD_NEAREDGE '{' edge_attribute_list '}' .   (rule 183)
+
+    $default	reduce using rule 183 (nearedge)
+
+
+
+state 584
+
+    node  ->  LEXWORD_NODE2 '{' node_attribute_list '}' .   (rule 179)
+
+    $default	reduce using rule 179 (node)
+
+
+
+state 585
+
+    node_attribute_list  ->  node_attribute_list node_attribute .   (rule 180)
+
+    $default	reduce using rule 180 (node_attribute_list)
+
+
+
+state 586
+
+    graph_attribute  ->  LEXWORD_COLORENTRY int_const ':' int_const int_const . int_const   (rule 54)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 631
+
+
+
+state 587
+
+    enum_dimension  ->  'x' .   (rule 296)
+
+    $default	reduce using rule 296 (enum_dimension)
+
+
+
+state 588
+
+    enum_dimension  ->  'y' .   (rule 297)
+
+    $default	reduce using rule 297 (enum_dimension)
+
+
+
+state 589
+
+    enum_dimension  ->  'z' .   (rule 298)
+
+    $default	reduce using rule 298 (enum_dimension)
+
+
+
+state 590
+
+    constraint_attribute  ->  LEXWORD_DIMENSION ':' enum_dimension .   (rule 267)
+
+    $default	reduce using rule 267 (constraint_attribute)
+
+
+
+state 591
+
+    constraint_attribute  ->  LEXWORD_INTERVAL ':' array_value .   (rule 265)
+
+    $default	reduce using rule 265 (constraint_attribute)
+
+
+
+state 592
+
+    enum_name  ->  LEXWORD_ABOVE .   (rule 279)
+
+    $default	reduce using rule 279 (enum_name)
+
+
+
+state 593
+
+    enum_name  ->  LEXWORD_BEHIND .   (rule 284)
+
+    $default	reduce using rule 284 (enum_name)
+
+
+
+state 594
+
+    enum_name  ->  LEXWORD_BELOW .   (rule 280)
+
+    $default	reduce using rule 280 (enum_name)
+
+
+
+state 595
+
+    enum_name  ->  LEXWORD_BOTTOM_MARGIN .   (rule 289)
+
+    $default	reduce using rule 289 (enum_name)
+
+
+
+state 596
+
+    enum_name  ->  LEXWORD_CLUSTER .   (rule 277)
+
+    $default	reduce using rule 277 (enum_name)
+
+
+
+state 597
+
+    enum_name  ->  LEXWORD_EQUAL_COLUMN .   (rule 287)
+
+    $default	reduce using rule 287 (enum_name)
+
+
+
+state 598
+
+    enum_name  ->  LEXWORD_EQUAL_POSITION .   (rule 285)
+
+    $default	reduce using rule 285 (enum_name)
+
+
+
+state 599
+
+    enum_name  ->  LEXWORD_EQUAL_ROW .   (rule 286)
+
+    $default	reduce using rule 286 (enum_name)
+
+
+
+state 600
+
+    enum_name  ->  LEXWORD_EQUAL .   (rule 270)
+
+    $default	reduce using rule 270 (enum_name)
+
+
+
+state 601
+
+    enum_name  ->  LEXWORD_GREATER .   (rule 272)
+
+    $default	reduce using rule 272 (enum_name)
+
+
+
+state 602
+
+    enum_name  ->  LEXWORD_HIGH_MARGIN .   (rule 275)
+
+    $default	reduce using rule 275 (enum_name)
+
+
+
+state 603
+
+    enum_name  ->  LEXWORD_IN_FRONT .   (rule 283)
+
+    $default	reduce using rule 283 (enum_name)
+
+
+
+state 604
+
+    enum_name  ->  LEXWORD_LEFT_MARGIN .   (rule 290)
+
+    $default	reduce using rule 290 (enum_name)
+
+
+
+state 605
+
+    enum_name  ->  LEXWORD_LEFT_NEIGHBOR .   (rule 294)
+
+    $default	reduce using rule 294 (enum_name)
+
+
+
+state 606
+
+    enum_name  ->  LEXWORD_LEFT .   (rule 281)
+
+    $default	reduce using rule 281 (enum_name)
+
+
+
+state 607
+
+    enum_name  ->  LEXWORD_LIMIT .   (rule 278)
+
+    $default	reduce using rule 278 (enum_name)
+
+
+
+state 608
+
+    enum_name  ->  LEXWORD_LOWER_NEIGHBOR .   (rule 293)
+
+    $default	reduce using rule 293 (enum_name)
+
+
+
+state 609
+
+    enum_name  ->  LEXWORD_LOW_MARGIN .   (rule 274)
+
+    $default	reduce using rule 274 (enum_name)
+
+
+
+state 610
+
+    enum_name  ->  LEXWORD_NEIGHBORS .   (rule 273)
+
+    $default	reduce using rule 273 (enum_name)
+
+
+
+state 611
+
+    enum_name  ->  LEXWORD_RANGE .   (rule 276)
+
+    $default	reduce using rule 276 (enum_name)
+
+
+
+state 612
+
+    enum_name  ->  LEXWORD_RIGHT_MARGIN .   (rule 291)
+
+    $default	reduce using rule 291 (enum_name)
+
+
+
+state 613
+
+    enum_name  ->  LEXWORD_RIGHT_NEIGHBOR .   (rule 295)
+
+    $default	reduce using rule 295 (enum_name)
+
+
+
+state 614
+
+    enum_name  ->  LEXWORD_RIGHT .   (rule 282)
+
+    $default	reduce using rule 282 (enum_name)
+
+
+
+state 615
+
+    enum_name  ->  LEXWORD_SMALLER .   (rule 271)
+
+    $default	reduce using rule 271 (enum_name)
+
+
+
+state 616
+
+    enum_name  ->  LEXWORD_TOP_MARGIN .   (rule 288)
+
+    $default	reduce using rule 288 (enum_name)
+
+
+
+state 617
+
+    enum_name  ->  LEXWORD_UPPER_NEIGHBOR .   (rule 292)
+
+    $default	reduce using rule 292 (enum_name)
+
+
+
+state 618
+
+    constraint_attribute  ->  LEXWORD_NAME ':' enum_name .   (rule 266)
+
+    $default	reduce using rule 266 (constraint_attribute)
+
+
+
+state 619
+
+    constraint_attribute  ->  LEXWORD_NODES ':' '{' . string_array '}'   (rule 264)
+
+    LEX_STRING	shift, and go to state 382
+
+    string_array	go to state 632
+    str_const	go to state 633
+
+
+
+state 620
+
+    constraint_attribute  ->  LEXWORD_PRIORITY ':' int_const .   (rule 262)
+
+    $default	reduce using rule 262 (constraint_attribute)
+
+
+
+state 621
+
+    constraint_attribute  ->  LEXWORD_SIZE ':' int_const .   (rule 263)
+
+    $default	reduce using rule 263 (constraint_attribute)
+
+
+
+state 622
+
+    constraint_attribute  ->  LEXWORD_TITLE ':' str_const .   (rule 261)
+
+    $default	reduce using rule 261 (constraint_attribute)
+
+
+
+state 623
+
+    node_attribute  ->  LEXWORD_LOC '{' 'x' ':' . int_const 'y' ':' int_const '}'   (rule 206)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 634
+
+
+
+state 624
+
+    index_value  ->  '*' ':' . attribute_value   (rule 310)
+
+    LEX_INT	shift, and go to state 635
+    LEX_FLOAT	shift, and go to state 571
+    LEX_CHAR	shift, and go to state 572
+    LEX_STRING	shift, and go to state 573
+    '{' 	shift, and go to state 414
+
+    attribute_value	go to state 636
+    array_value	go to state 577
+
+
+
+state 625
+
+    range  ->  '[' int_const . '-' int_const ']'   (rule 311)
+
+    '-' 	shift, and go to state 637
+
+
+
+state 626
+
+    array_value  ->  '{' index_value_list '}' .   (rule 304)
+
+    $default	reduce using rule 304 (array_value)
+
+
+
+state 627
+
+    index_value_list  ->  index_value_list index_value .   (rule 305)
+
+    $default	reduce using rule 305 (index_value_list)
+
+
+
+state 628
+
+    index_value  ->  range ':' . attribute_value   (rule 309)
+
+    LEX_INT	shift, and go to state 635
+    LEX_FLOAT	shift, and go to state 571
+    LEX_CHAR	shift, and go to state 572
+    LEX_STRING	shift, and go to state 573
+    '{' 	shift, and go to state 414
+
+    attribute_value	go to state 638
+    array_value	go to state 577
+
+
+
+state 629
+
+    index_value  ->  index ':' . attribute_value   (rule 308)
+
+    LEX_INT	shift, and go to state 635
+    LEX_FLOAT	shift, and go to state 571
+    LEX_CHAR	shift, and go to state 572
+    LEX_STRING	shift, and go to state 573
+    '{' 	shift, and go to state 414
+
+    attribute_value	go to state 639
+    array_value	go to state 577
+
+
+
+state 630
+
+    graph_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const . 'y' ':' int_const '}'   (rule 29)
+
+    'y' 	shift, and go to state 640
+
+
+
+state 631
+
+    graph_attribute  ->  LEXWORD_COLORENTRY int_const ':' int_const int_const int_const .   (rule 54)
+
+    $default	reduce using rule 54 (graph_attribute)
+
+
+
+state 632
+
+    constraint_attribute  ->  LEXWORD_NODES ':' '{' string_array . '}'   (rule 264)
+    string_array  ->  string_array . str_const   (rule 268)
+
+    LEX_STRING	shift, and go to state 382
+    '}' 	shift, and go to state 641
+
+    str_const	go to state 642
+
+
+
+state 633
+
+    string_array  ->  str_const .   (rule 269)
+
+    $default	reduce using rule 269 (string_array)
+
+
+
+state 634
+
+    node_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const . 'y' ':' int_const '}'   (rule 206)
+
+    'y' 	shift, and go to state 643
+
+
+
+state 635
+
+    attribute_value  ->  LEX_INT .   (rule 299)
+
+    $default	reduce using rule 299 (attribute_value)
+
+
+
+state 636
+
+    index_value  ->  '*' ':' attribute_value .   (rule 310)
+
+    $default	reduce using rule 310 (index_value)
+
+
+
+state 637
+
+    range  ->  '[' int_const '-' . int_const ']'   (rule 311)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 644
+
+
+
+state 638
+
+    index_value  ->  range ':' attribute_value .   (rule 309)
+
+    $default	reduce using rule 309 (index_value)
+
+
+
+state 639
+
+    index_value  ->  index ':' attribute_value .   (rule 308)
+
+    $default	reduce using rule 308 (index_value)
+
+
+
+state 640
+
+    graph_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const 'y' . ':' int_const '}'   (rule 29)
+
+    ':' 	shift, and go to state 645
+
+
+
+state 641
+
+    constraint_attribute  ->  LEXWORD_NODES ':' '{' string_array '}' .   (rule 264)
+
+    $default	reduce using rule 264 (constraint_attribute)
+
+
+
+state 642
+
+    string_array  ->  string_array str_const .   (rule 268)
+
+    $default	reduce using rule 268 (string_array)
+
+
+
+state 643
+
+    node_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const 'y' . ':' int_const '}'   (rule 206)
+
+    ':' 	shift, and go to state 646
+
+
+
+state 644
+
+    range  ->  '[' int_const '-' int_const . ']'   (rule 311)
+
+    ']' 	shift, and go to state 647
+
+
+
+state 645
+
+    graph_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const 'y' ':' . int_const '}'   (rule 29)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 648
+
+
+
+state 646
+
+    node_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const 'y' ':' . int_const '}'   (rule 206)
+
+    LEX_INT	shift, and go to state 118
+
+    int_const	go to state 649
+
+
+
+state 647
+
+    range  ->  '[' int_const '-' int_const ']' .   (rule 311)
+
+    $default	reduce using rule 311 (range)
+
+
+
+state 648
+
+    graph_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const 'y' ':' int_const . '}'   (rule 29)
+
+    '}' 	shift, and go to state 650
+
+
+
+state 649
+
+    node_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const 'y' ':' int_const . '}'   (rule 206)
+
+    '}' 	shift, and go to state 651
+
+
+
+state 650
+
+    graph_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const 'y' ':' int_const '}' .   (rule 29)
+
+    $default	reduce using rule 29 (graph_attribute)
+
+
+
+state 651
+
+    node_attribute  ->  LEXWORD_LOC '{' 'x' ':' int_const 'y' ':' int_const '}' .   (rule 206)
+
+    $default	reduce using rule 206 (node_attribute)
+
+
+
+state 652
+
+    $   	go to state 653
+
+
+
+state 653
+
+    $   	go to state 654
+
+
+
+state 654
+
+    $default	accept

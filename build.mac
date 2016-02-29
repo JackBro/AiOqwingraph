@@ -1,0 +1,6 @@
+#!/bin/sh
+
+qmake -o Makefile.g++ wingraph.pro -platform macx-g++
+rcc -name wingraph wingraph.qrc -o qrc_wingraph.cpp
+make -f Makefile.g++ clean
+make -f Makefile.g++

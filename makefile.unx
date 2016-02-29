@@ -1,0 +1,26 @@
+BUILD_WINGRAPH=1
+ifdef __X64__
+BUILD_WINGRAPH=
+endif
+
+ifdef __EA64__
+BUILD_WINGRAPH=
+endif
+
+ifdef BUILD_WINGRAPH
+
+include ../../../allmake.unx
+
+all: goal
+
+PROJECT=wingraph
+include ../qtcommon.unx
+
+goal: objdir $(MAKEFILE)
+	@$(MAKE) -j 4 -f $(MAKEFILE)
+
+include ../../../objdir.unx
+
+else
+all:    # we do not build 64-bit version of idaq
+endif

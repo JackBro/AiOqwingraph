@@ -1,0 +1,22 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+   <file>images/cartesian.png</file>
+   <file>images/cartesianDown.png</file>
+   <file>images/fitAll.png</file>
+   <file>images/fixedCartesian.png</file>
+   <file>images/fixedCartesianDown.png</file>
+   <file>images/fixedPolar.png</file>
+   <file>images/fixedPolarDown.png</file>
+   <file>images/labelEdges.png</file>
+   <file>images/labelEdgesDown.png</file>
+   <file>images/normalView.png</file>
+   <file>images/normalViewDown.png</file>
+   <file>images/polar.png</file>
+   <file>images/polarDown.png</file>
+   <file>images/positOrigin.png</file>
+   <file>images/print.png</file>
+   <file>images/zoomIn.png</file>
+   <file>images/zoomNormal.png</file>
+   <file>images/zoomOut.png</file>
+</qresource>
+</RCC>

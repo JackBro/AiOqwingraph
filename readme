@@ -1,0 +1,87 @@
+
+WinGraph_qt - Graph Visualization Tool for MS Windows
+====================================================
+
+WinGraph_qt tool reads a textual and readable specification of a graph and
+visualizes the graph. It layouts the graph using several heuristics as
+reducing the number of crossings, minimizing the size of edges, centering of
+nodes. The specification language of WinGraph_qt is GDL, Graph Description
+Language.
+
+WinGraph_qt is a port of the WinGraph32 tool which in turn is a port of the
+VCG tool to MS Windows. Some functionality has been removed during the porting
+process.
+
+
+COMPILATION
+===========
+
+WinGraph_qt builds on Windows using msvc/nmake, Linux using g++/gmake
+and OS X using g++/make.  A Qt development environment with qmake is
+required.  WinGraph_qt expects the Qt libraries to have been built
+using QT_NAMESPACE QT (similar to Ida) and will link just fine
+against the Qt4 libraries that ship with Ida.  The build process is
+as follows:
+
+Windows:
+qmake -o Makefile.msvc wingraph.pro -platform win32-msvc2008
+nmake -f Makefile.msvc
+
+Linux:
+qmake -o Makefile wingraph.pro -platform linux-g++
+gmake
+
+OS X:
+qmake -o Makefile wingraph.pro -platform macx-g++
+make
+
+We prepared build.* files for your convenience.
+
+The source code of WinGraph_qt is available from our site:
+
+        http://www.hex-rays.com
+
+
+INSTALLATION
+============
+
+No special installation prodecure is required because WinGraph_qt consists
+of one executable file. Copy it to any directory you like.
+
+
+USAGE
+=====
+
+Run WinGraph_qt by specifying the input file in the command line:
+
+        WinGraph_qt input-file.gdl
+
+The input file should be a text file describing the graph.
+
+WinGraph_qt supports one additional command line switch:
+
+  -remove       removes the input file after parsing it
+
+For the whole list of the command line switches, please refer to
+the original VCG tool documentation:
+
+ftp://ftp.cs.uni-sb.de/pub/graphics/vcg/doc/vcgdoc.ps.gz
+
+or visit the VCG site on the web:
+
+http://rw4.cs.uni-sb.de/users/sander/html/gsvcg1.html
+
+The original readme file for the VCG tool is original_vcg_readme.txt
+
+
+LICENSE
+=======
+
+WinGraph_qt is released under GPL (GNU General Public License)
+
+Datarescue sa/nv will neither assume responsibility for any
+damages caused by the use of WinGraph_qt, nor accept warranty or
+update claims. This product is distributed in the hope that it will
+be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.  See the file COPYING.
